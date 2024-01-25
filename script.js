@@ -26,10 +26,66 @@ function handleSearchKey(event) {
     }
 }
 
+// Function to filter products based on the search query
+function searchProducts(event) {
+    console.log(event.key); // Log the pressed key (check if 'Enter' is logged)
+
+    if (event.key === 'Enter') {
+        const searchInput = document.getElementById('searchInput');
+        const query = searchInput.value.trim().toLowerCase(); // Trim and convert to lowercase
+        const matchingProduct = findMatchingProduct(query);
+
+        const modal = document.getElementById('productModal');
+        const sorryMessage = document.getElementById('sorryMessage');
+
+        if (query !== '') {
+            if (matchingProduct) {
+                // Display product details in the modal
+                displayProductDetails(matchingProduct);
+                sorryMessage.style.display = 'none';
+            } else {
+                sorryMessage.style.display = 'block';
+            }
+        } else {
+            // Clear the modal and sorry message when the search bar is empty
+            modal.style.display = 'none';
+            sorryMessage.style.display = 'none';
+        }
+    }
+}
+
+// Function to display product details in the modal
+function displayProductDetails(product) {
+    const modal = document.getElementById('productModal');
+    const modalContent = document.getElementById('modalContent');
+
+    // Update modal content with product details
+    modalContent.innerHTML = `
+        <h2>${product.name}</h2>
+        <img src="${product.image}" alt="${product.name}">
+        <p>Price: $${product.price.toFixed(2)}</p>
+        <button onclick="addToCart('${product.name}', ${product.price}, '${product.image}')">Add to Cart</button>
+        <button onclick="closeModal()">Close</button>
+    `;
+
+    // Display the modal
+    modal.style.display = 'flex';
+}
+
+// Function to close the modal
+function closeModal() {
+    const modal = document.getElementById('productModal');
+    modal.style.display = 'none';
+}
+
 // Function to find a matching product based on the search query
 function findMatchingProduct(query) {
+    // Remove spaces from the search query
+    const queryWithoutSpaces = query.replace(/\s/g, '');
+
     return products.find(product =>
-        product.name.toLowerCase().includes(query)
+        // Remove spaces from the product name before comparing
+        product.name.toLowerCase().replace(/\s/g, '').includes(queryWithoutSpaces)
     );
 }
 
