@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shopping Cart</title>
+    <link rel="stylesheet" href="HigherCosmosStyles.css">
+</head>
+<body onload="loadCartFromLocalStorage()">
+
+    <header>
+        <h1>Your Shopping Cart</h1>
+        <nav>
+            <ul>
+                <li><a href="HigherCosmosHomePage.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="Cart.html">Cart</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="cart">
+        <div id="cart-items" class="cart-items">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <div id="total-price"></div>
+        <button onclick="checkout()">Proceed to Checkout</button>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions? Reach out to us at <a href="mailto:HigherCosmosSupport@gmail.com">HigherCosmosSupport@gmail.com</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Higher Cosmos. All rights reserved.</p>
+    </footer>
+
+    <script src="HigherCosmosCart.js"></script>
+    <script src="script.js"></script>
+    <!-- <script src="product.js"></script> -->
+</body>
+</html>

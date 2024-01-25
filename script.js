@@ -1,0 +1,144 @@
+// script.js - Shared JavaScript functions
+
+// Assuming you have a list of products
+const products = [
+    { name: 'Metal Pipe', price: 20.00, image: 'metalpipe.jpg' },
+    { name: 'Product 2', price: 5.99, image: 'product2.jpg' },
+    { name: 'Product 3', price: 30.99, image: 'product3.jpg' },
+    { name: 'Product 4', price: 15.99, image: 'product4.jpg' },
+    { name: 'Product 5', price: 9.99, image: 'product5.jpg' }
+    // Add more products as needed
+];
+
+// Function to handle Enter key press in the search bar
+function handleSearchKey(event) {
+    if (event.key === 'Enter') {
+        const searchInput = document.getElementById('searchInput');
+        const query = searchInput.value.toLowerCase();
+        const matchingProduct = findMatchingProduct(query);
+
+        if (matchingProduct) {
+            scrollToProduct(matchingProduct);
+            document.getElementById('sorryMessage').style.display = 'none';
+        } else {
+            document.getElementById('sorryMessage').style.display = 'block';
+        }
+    }
+}
+
+// Function to find a matching product based on the search query
+function findMatchingProduct(query) {
+    return products.find(product =>
+        product.name.toLowerCase().includes(query)
+    );
+}
+
+// Function to scroll to the found product
+function scrollToProduct(product) {
+    const productElement = document.getElementById(`product_${product.name.replace(/\s/g, '_')}`);
+    if (productElement) {
+        productElement.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+// Function to load cart data from localStorage
+function loadCartFromLocalStorage() {
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+        cart = JSON.parse(storedCart);
+        updateCartDisplay();
+    }
+}
+
+// Function to update the cart display
+function updateCartDisplay() {
+    const cartItemsDiv = document.getElementById('cart-items');
+    cartItemsDiv.innerHTML = '';
+
+    let total = 0;
+
+    for (const [productName, { price, quantity, image }] of Object.entries(cart)) {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'cart-item';
+        itemDiv.innerHTML = `
+            <div class="product-info">
+                <img src="${image}" alt="${productName}" style="width: 50px; height: 50px;">
+                <div class="text-info">
+                    <p>${productName} - $${price.toFixed(2)} x ${quantity}</p>
+                    <button class="remove-button" onclick="removeFromCart('${productName}')">Remove</button>
+                </div>
+            </div>
+        `;
+        cartItemsDiv.appendChild(itemDiv);
+
+        // Calculate and update the total price
+        total += price * quantity;
+    }
+
+    // Display the total price
+    const totalPriceDiv = document.getElementById('total-price');
+    totalPriceDiv.innerText = `Total: $${total.toFixed(2)}`;
+}
+
+// Function to save cart data to localStorage
+function saveCartToLocalStorage() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Function to add items to the cart
+function addToCart(productName, price, image) {
+    if (cart[productName]) {
+        // If the product is already in the cart, increase the quantity
+        cart[productName].quantity += 1;
+    } else {
+        // If the product is not in the cart, add it with quantity 1
+        cart[productName] = { price, quantity: 1, image };
+    }
+
+    // Save the cart data to localStorage
+    saveCartToLocalStorage();
+
+    // Update the cart display
+    updateCartDisplay();
+}
+
+// Function to remove items from the cart
+function removeFromCart(productName) {
+    // Decrease the quantity of the product in the cart
+    if (cart[productName]) {
+        cart[productName].quantity -= 1;
+
+        // Remove the product from the cart if the quantity is 0
+        if (cart[productName].quantity === 0) {
+            delete cart[productName];
+        }
+    }
+
+    // Save the cart data to localStorage
+    saveCartToLocalStorage();
+
+    // Update the cart display
+    updateCartDisplay();
+}
+
+// Function to display products
+function displayProducts(products) {
+    const productsContainer = document.getElementById('featured-products');
+    productsContainer.innerHTML = ''; // Clear previous products
+
+    products.forEach(product => {
+        const productDiv = document.createElement('div');
+        productDiv.id = `product_${product.name.replace(/\s/g, '_')}`; // Add an ID for each product
+        productDiv.className = 'product';
+        productDiv.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>$${product.price.toFixed(2)}</p>
+            <button onclick="addToCart('${product.name}', ${product.price}, '${product.image}')">Add to Cart</button>
+        `;
+        productsContainer.appendChild(productDiv);
+    });
+}
+
+// Call the loadCartFromLocalStorage function when the page loads
+loadCartFromLocalStorage();
