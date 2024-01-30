@@ -3,29 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Shopping Cart</title>
+    <title>Your Shopping Cart</title>   
     <link rel="stylesheet" href="HigherCosmosStyles.css">
 </head>
 <body onload="loadCartFromLocalStorage()">
 
     <header>
-        <h1>Your Shopping Cart</h1>
-        <nav>
-            <ul>
-                <li><a href="HigherCosmosHomePage.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="Cart.html">Cart</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="navbar">
+            <nav class="navbar-container">
+                <h1>Higher Cosmos</h1>
+                <ul>
+                    <li><a href="HigherCosmosHomePage.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="Cart.html">Cart</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
+    
     <section id="cart">
+        <h1 class="title">Your Shopping Cart</h1>
         <div id="cart-items" class="cart-items">
             <!-- Cart items will be displayed here -->
         </div>
-        <div id="total-price"></div>
-        <button onclick="checkout()">Proceed to Checkout</button>
+        <div class="total">
+            <div id="total-price"></div>
+            <button class="checkout" onclick="checkout()">Proceed to Checkout</button>
+        </div>
     </section>
 
     <section id="contact">
@@ -39,6 +45,7 @@
 
     <script src="HigherCosmosCart.js"></script>
     <script src="script.js"></script>
+    
     <!-- <script src="product.js"></script> -->
 </body>
 </html>

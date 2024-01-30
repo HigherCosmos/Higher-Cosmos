@@ -47,9 +47,10 @@ function updateCartDisplay() {
         itemDiv.className = 'cart-item';
         itemDiv.innerHTML = `
             <div class="product-info">
-                <img src="${image}" alt="${productName}" style="width: 50px; height: 50px;" onerror="imageError('${productName}')">
+                <img src="${image}" alt="${productName}" onerror="imageError('${productName}')">
                 <div class="text-info">
-                    <p>${productName} - $${price.toFixed(2)} x ${quantity}</p>
+                    <p>${productName} - $${price.toFixed(2)}</p> 
+                    <p> Quantity: ${quantity}</p>
                     <button class="remove-button" onclick="removeFromCart('${productName}')">Remove</button>
                 </div>
             </div>
