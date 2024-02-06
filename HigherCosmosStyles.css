@@ -129,6 +129,9 @@ footer {
     text-align: center;
     padding: 1px;
     margin-top: auto;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 /* Add this to style the search bar */
