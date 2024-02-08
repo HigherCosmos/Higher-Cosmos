@@ -23,7 +23,15 @@
         </div>
     </header>
 
-    <section id="products">
+    <section id="home">
+        <h2>Welcome to Our Shop!</h2>
+        <p>Shop our wide range of products!</p>
+        <!-- Search bar -->
+        <input type="text" id="searchInput" placeholder="Search for products..." oninput="searchProducts(event)" onkeydown="searchProducts(event)">
+        <p id="sorryMessage" style="display: none;">Sorry, no matching products found.</p>
+    </section>
+
+    <section id="featured-products">
         <h2>Our Products</h2>
         <div class="product">
             <img src="metalpipe.jpg" alt="Metal Pipe" style="width: 100px; height: 100px;">
@@ -108,10 +116,6 @@
         <!-- Add more featured products as needed -->
     </section>
 
-
-
-
-
     <section id="contact">
         <h2>Contact Us</h2>
         <p>Have questions? Reach out to us at <a href="mailto:HigherCosmosSupport@gmail.com">HigherCosmosSupport@gmail.com</a></p>
@@ -120,6 +124,12 @@
     <footer>
         <p>&copy; 2024 Higher Cosmos. All rights reserved.</p>
     </footer>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content" id="modalContent">
+            <!-- Modal content goes here -->
+        </div>
+    </div>
 
     <script src="HigherCosmosCart.js"></script>
     <script src="script.js"></script>
