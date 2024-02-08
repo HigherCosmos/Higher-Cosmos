@@ -3,10 +3,10 @@
 // Assuming you have a list of products
 const products = [
     { name: 'Metal Pipe', price: 20.00, image: 'metalpipe.jpg' },
-    { name: 'Product 2', price: 5.99, image: 'product2.jpg' },
-    { name: 'Product 3', price: 30.99, image: 'product3.jpg' },
-    { name: 'Product 4', price: 15.99, image: 'product4.jpg' },
-    { name: 'Product 5', price: 9.99, image: 'product5.jpg' },
+    { name: 'Dove Exfoliating Soap', price: 5.99, image: 'product2.jpg' },
+    { name: 'Head and Shoulders-Cool Menthol', price: 10.99, image: 'product3.jpg' },
+    { name: 'Head and Shoulders Conditioner-Coconut Clean', price: 10.99, image: 'product4.jpg' },
+    { name: 'CeraVe-Benzoyl Peroxide', price: 13.49, image: 'product5.jpg' },
     { name: '13 in 1 Shampoo', price: 29.99, image: '13i1shampoo.jpg' },
     { name: 'Product 7', price: 1, image: 'product7.jpg' },
     { name: 'Product 8', price: 1, image: 'product8.jpg' },
