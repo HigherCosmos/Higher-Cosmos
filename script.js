@@ -6,7 +6,13 @@ const products = [
     { name: 'Product 2', price: 5.99, image: 'product2.jpg' },
     { name: 'Product 3', price: 30.99, image: 'product3.jpg' },
     { name: 'Product 4', price: 15.99, image: 'product4.jpg' },
-    { name: 'Product 5', price: 9.99, image: 'product5.jpg' }
+    { name: 'Product 5', price: 9.99, image: 'product5.jpg' },
+    { name: 'Product 6', price: 1, image: 'product6.jpg' },
+    { name: 'Product 7', price: 1, image: 'product7.jpg' },
+    { name: 'Product 8', price: 1, image: 'product8.jpg' },
+    { name: 'Product 9', price: 1, image: 'product9.jpg' },
+    { name: 'Product 10', price: 1, image: 'product10.jpg' }
+    // { name: '', price: , image: '' }
     // Add more products as needed
 ];
 
