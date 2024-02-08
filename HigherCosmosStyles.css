@@ -7,14 +7,16 @@ body {
 }
 
 .navbar {
+    color: #fff;
     width: 100%;
     height: auto;
     padding: 10px;
-    background-color: #5cbfc1;
+    background-color: #7a7f7f;
     border-radius: 0;
 }
 
 .navbar-container {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,18 +32,22 @@ body {
 }
 
 .navbar li {
+    width: 100%;
     margin: 0 15px;
     font-weight: bold;
     text-transform: uppercase;
 }
 
 .navbar a {
-    color: black;
+    color: rgb(255, 255, 255);
     text-decoration: none;
 }
 
 .navbar a:hover {
-    color: #3a7fa1;
+    color: #7a7f7f;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 0px;
 }
 
 .title {
@@ -124,7 +130,7 @@ section {
 }
 
 footer {
-    background-color: #5cbfc1;
+    background-color: #7a7f7f;
     color: white;
     text-align: center;
     padding: 1px;
