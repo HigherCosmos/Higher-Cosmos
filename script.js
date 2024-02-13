@@ -7,8 +7,8 @@ const products = [
     { name: 'Head and Shoulders Conditioner-Coconut Clean', price: 10.99, image: 'Coconut Clean.jpg' },
     { name: 'CeraVe-Benzoyl Peroxide', price: 13.49, image: 'Benzoyl.jpg' },
     { name: '13 in 1 Shampoo', price: 29.99, image: '13in1shampoo.jpg' },
-    { name: 'Product 7', price: 1, image: 'product7.jpg' },
-    { name: 'Product 8', price: 1, image: 'product8.jpg' },
+    { name: 'CeraVe-Salicylic Acid', price: 14.99, image: 'Salicyclic.jpg' },
+    { name: 'Olay-Vitamin C', price: 11.99, image: 'Vitamin C.jpg' },
     { name: 'Product 9', price: 1, image: 'product9.jpg' },
     { name: 'Product 10', price: 1, image: 'product10.jpg' }
     // { name: '', price: , image: '' }
