@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,15 +24,22 @@
     </header>
 
     <section id="home">
-        <h2>Welcome to Higher Cosmos</h2>
-        <p>Discover a higher level of beauty with our premium cosmetic products.</p>
-        <!-- Update the search input and add an element for the sorry message -->
+        <h2>Welcome to Our Shop!</h2>
+        <p>Shop our wide range of products!</p>
+        <!-- Search bar -->
         <input type="text" id="searchInput" placeholder="Search for products..." oninput="searchProducts(event)" onkeydown="searchProducts(event)">
         <p id="sorryMessage" style="display: none;">Sorry, no matching products found.</p>
     </section>
 
     <section id="featured-products">
-        <h2>Featured Products</h2>
+        <h2>Our Products</h2>
+        <div class="product">
+            <img src="metalpipe.jpg" alt="Metal Pipe" style="width: 100px; height: 100px;">
+            <h3>Metal Pipe</h3>
+            <p>The highest quality of pipe. Dropping this pipe on the floor makes the greatest sound.</p>
+            <p>$20.00</p>
+            <button onclick="addToCart('Metal Pipe', 20.00, 'metalpipe.jpg')">Add to Cart</button>
+        </div>
 
         <div class="product">
             <img src="Dove Soap.jpg" alt="Dove Exfoliating Soap" style="width: 150px; height: 150px;">
@@ -56,12 +62,12 @@
             <img src="Coconut Clean.jpg" alt="Coconut Clean" style="width: 150px; height: 150px;">
             <h3>Head and Shoulders Conditioner-Coconut Clean</h3>
             <p>Spruce up your ends and freshen up your scalp with the moisture of coconuts. </p>
-            <p>$4.99</p>
-            <button onclick="addToCart('Coconut Clean', 4.99)">Add to Cart</button>
+            <p>$5.00</p>
+            <button onclick="addToCart('Coconut Clean', 5.00)">Add to Cart</button>
         </div>
 
         <div class="product">
-            <img src="Benzoyl.jpg" alt="Benzoyl Peroxide" style="width: 150px; height: 150px;">            
+            <img src="Benzoyl.jpg" alt="CeraVe-Benzoyl Peroxide" style="width: 150px; height: 150px;">            
             <h3>CeraVe-Benzoyl Peroxide</h3>
             <p>This creamy based cleanser contains 4% benzoyl peroxide. Formulated to cleanse the skin,
                 allow the skin to heal from comedones, and remove bacteria buildup in the pores.
@@ -71,42 +77,51 @@
         </div>
 
         <div class="product">
-            <img src="Salicyclic.jpg" alt="Salicylic Acid" style="width: 150px; height: 150px;">
+            <img src="13in1shampoo.jpg" alt="13 in 1 Shampoo" style="width: 100px; height: 100px;">
+            <h3>13 in 1 Shampoo</h3>
+            <p>Description of 13 in 1 Shampoo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>$29.99</p>
+            <button onclick="addToCart('13 in 1 Shampoo', 29.99)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="Salicyclic.jpg" alt="CeraVe-Salicylic Acid" style="width: 150px; height: 150px;">
             <h3>CeraVe-Salicylic Acid</h3>
             <p>This water based cleanser contains 2% salicylic acid. Formulated to reduce the appearance of blackheads
                 and brighten up those blemishes for an even skin tone.
             </p>
             <p>$14.99</p>
-            <button onclick="addToCart('Salicylic Acid', 14.99)">Add to Cart</button>
+            <button onclick="addToCart('CeraVe-Salicylic Acid', 14.99)">Add to Cart</button>
         </div>
 
         <div class="product">
-            <img src="Vitamin C.jpg" alt="Vitamin C" style="width: 150px; height: 150px;">
+            <img src="Vitamin C.jpg" alt="Olay-Vitamin C" style="width: 150px; height: 150px;">
             <h3>Olay Vitamin C Body Wash w/ B3 vitamins</h3>
             <p>Hydrate your skin with vitamin C and B3 complex for smoother, more radiant skin.
             </p>
             <p>$12.00</p>
-            <button onclick="addToCart('Vitamin C', 12.00)">Add to Cart</button>
+            <button onclick="addToCart('Olay-Vitamin C', 12.00)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="product9.jpg" alt="Product 9"style="width: 100px; height: 100px;">
+            <h3>Product 9</h3>
+            <p>Description of Product 9. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>$1</p>
+            <button onclick="addToCart('Product 9', 1)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="product10.jpg" alt="Product 10" style="width: 100px; height: 100px;">
+            <h3>Product 10</h3>
+            <p>Description of Product 10. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>$1</p>
+            <button onclick="addToCart('Product 10', 1)">Add to Cart</button>
         </div>
 
         <!-- Add more featured products as needed -->
     </section>
 
-    <section id="cta">
-        <h2>Transform Your Beauty Routine</h2>
-        <p>Explore our premium cosmetic products and elevate your beauty experience.</p>
-        <a href="shop.html">Shop Now</a>
-    </section>
-
- <!--   <section id="cart">
-        <h2>Your Shopping Cart</h2>
-        <div id="cart-items" class="cart-items">
-             Cart items will be displayed here <comment here>
-        </div>
-        <div id="total-price"></div>
-        <button onclick="checkout()">Proceed to Checkout</button>
-    </section>
--->
     <section id="contact">
         <h2>Contact Us</h2>
         <p>Have questions? Reach out to us at <a href="mailto:HigherCosmosSupport@gmail.com">HigherCosmosSupport@gmail.com</a></p>
@@ -124,19 +139,5 @@
 
     <script src="HigherCosmosCart.js"></script>
     <script src="script.js"></script>
-    <div id="cookies">
-        <div class="container">
-            <div class="subcontainer">
-                <div class="cookies">
-                    <p>This website uses cookies to ensure you get the best experience on our website.
-                    <a href=""> More info.</a></p>
-                    <button id="cookies-btn"> That's Fine</button>
-                </div>
-            </div>
-        </div>
-
-    </div>
 </body>
 </html>
-
-
