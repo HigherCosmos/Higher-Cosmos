@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+
+<html> 
+	<head>
+		<meta charset = "utf-8">
+		<title> WELCOME TO MY SHORT WEB PAGE </title>
+		<style> 
+		body{
+		background-image: linear-gradient(to top right,yellow, green, blue);
+		color: white;
+		}
+		</style>
+	</head>
+	<body>
+		<header>
+		<img src = "HigherCosmosLogo.jpg" alt = "Higher Cosmos Logo"/>
+		<h3> With All care. We care. <h3>
+		
+		<p><a href ="https://disneynow.com">
+		<img src="C:\Users\kenfu\OneDrive\Documents\CSCI 380-01_Web Prog. & Interface\ExamPart1/bell.jpg" width ="65"
+			height ="50"
+			alt= "Bell Picture"></a></p>
+		</header>
+		
+		<p> PLAY TIME FUN WITH TINKERBELL:
+			<ul>
+				<li>Enjoy the experience to play games with Disney</li>
+				<li>Have the chance to Learn with Disney friends</li>
+				<li>Tinkerbell will be your guide</li>
+				<li>Connect with your friends</li>
+				<li>Use your Imagination</li>
+				<li>Have the chance to win Prizes</li>
+				<li>Be your unique self</li>
+				<li>Invite people to join Disney</li>
+				<li>Remeber to DREAM BIG with Disney</li>
+		
+		
+		
+		
+	</body>
+	</html>
