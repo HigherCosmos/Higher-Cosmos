@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Behind the Higher Cosmos</title>   
+    <title>Behind Higher Cosmos</title>   
     <link rel="stylesheet" type="text/css" href="HigherCosmosStyles.css">
 </head>
 <body onload="loadCartFromLocalStorage()">
@@ -18,35 +18,21 @@
                     <li><a href="shop.html">Shop</a></li>
                     <li><a href="Cart.html">Cart</a></li>
                     <li><a href="#contact">Contact</a></li>
+			<li><a href="Info.html">Info</a></li>
                     <li><a href="Create Account.html">Signup/Login</a></li>
+
                 </ul>
             </nav>
         </div>
     </header>
 
-<html> 
-	<head>
-		<meta charset = "utf-8">
-		<title> WELCOME TO MY SHORT WEB PAGE </title>
-		<style> 
-		body{
-		background-image: linear-gradient(to top right,yellow, green, blue);
-		color: white;
-		}
-		</style>
-	</head>
 	<body>
 		<header>
 		<img src = "HigherCosmosLogo.jpg" alt = "Higher Cosmos Logo"/>
 		<h3> With All care. We care. <h3>
 		
-		<p><a href ="https://disneynow.com">
-		<img src="C:\Users\kenfu\OneDrive\Documents\CSCI 380-01_Web Prog. & Interface\ExamPart1/bell.jpg" width ="65"
-			height ="50"
-			alt= "Bell Picture"></a></p>
-		</header>
 		
-		<p> PLAY TIME FUN WITH TINKERBELL:
+		<p> Our Mission to reach Higher Cosmos:
 			<ul>
 			 A Higher Cosmos is a designated website for selling cosmetics and for guiding customers while selling a multitude of products . 
 			Although this is a general idea, I believe integrating this sort of database design will help many consumers to shop for all different cosmetic products. 
