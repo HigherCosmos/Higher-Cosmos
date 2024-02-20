@@ -4,7 +4,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: rgb(111, 131, 151);
+    /* background: rgb(111, 131, 151); */
     color: rgb(0, 0, 0);
 }
 
@@ -13,8 +13,13 @@ body {
     width: 100%;
     height: auto;
     padding: 10px;
-    background-color: #7a7f7f;
+    background-color: #5cbfc1;
     border-radius: 0;
+    background-image: url("spacebackground.jpg");
+    color: rgb(0, 0, 0);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    font-size: 26px;
 }
 
 .navbar-container {
@@ -40,8 +45,11 @@ body {
 }
 
 .navbar a {
-    color: rgb(255, 255, 255);
+    color: black;
     text-decoration: none;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    font-size: 20px;
 }
 
 .navbar a:hover {
@@ -131,7 +139,7 @@ section {
 }
 
 footer {
-    background-color: #7a7f7f;
+    background-image: url("spacebackground.jpg");
     color: white;
     text-align: center;
     padding: 1px;
