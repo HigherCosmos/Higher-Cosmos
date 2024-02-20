@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher Cosmos</title>
+    <link rel="stylesheet" type="text/css" href="HigherCosmosStyles.css">
+</head>
+<body onload="loadCartFromLocalStorage()">
+
+    <header>
+        <div class="navbar">
+            <nav class="navbar-container">
+                <h1>Higher Cosmos</h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="Cart.html">Cart</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="Info.html">Info</a></li>    
+                    <li><a href="Create Account.html">Signup/Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+      <section id="home">
+        <h2>Welcome to Our Shop!</h2>
+        <p>Shop our wide range of products!</p>
+        <!-- Search bar -->
+        <input type="text" id="searchInput" placeholder="Search for products..." oninput="searchProducts(event)" onkeydown="searchProducts(event)">
+        <p id="sorryMessage" style="display: none;">Sorry, no matching products found.</p>
+    </section>
+
+    <section id="featured-products">
+        <h2>Our Products</h2>
+
+        <div class="product">
+            <img src="Dove Soap.jpg" alt="Dove Exfoliating Soap" style="width: 150px; height: 150px;">
+            <h3>Dove Exfoliating Soap</h3>
+            <p>An exfoliating bar of soap that gently cleanses the skin while diminishing bacteria and rough texture with the beads. </p>
+            <p>$5.99</p>
+            <button onclick="addToCart('Dove Exfoliating Soap', 5.99)">Add to Cart</button>
+        </div>
+
+        <li><a href="shop.html">1</a></li>
+        <li><a href="shop2.html">2</a></li>
+        <li><a href="shop3.html">3</a></li>
+
+        
+    
+
+        
