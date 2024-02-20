@@ -54,14 +54,10 @@ body {
 }
 
 .navbar a:hover {
-<<<<<<< HEAD
     color: #7a7f7f;
     background-color: #fff;
     border-radius: 10px;
     padding: 0px;
-=======
-    color: #5c8ca4;
->>>>>>> 8251439323210dfccaf207e1974ccd021aec81f9
 }
 
 .title {
@@ -144,7 +140,7 @@ section {
 }
 
 footer {
-    background-color: #5cbfc1;
+    background-image: url("spacebackground.jpg");
     color: white;
     text-align: center;
     padding: 1px;
