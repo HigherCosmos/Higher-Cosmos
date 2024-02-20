@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup/Login</title>
+    <title>Sign up</title>
     <link rel="stylesheet" type="text/css" href="HigherCosmosStyles.css">
 </head>
 <body>
@@ -11,6 +11,8 @@
         <div class="navbar">
             <nav class="navbar-container">
                 <h1>Higher Cosmos</h1>
+                <p>Please fill in this form to create an account.</p>
+    <hr>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
@@ -26,9 +28,16 @@
     <div align="center">
         <div class="container">
             <form>
-                <label> Username: </label><input type="text" name="username" class="box" /><br /><br />
-                <label> Password: </label><input type="password" name="password" class="box" /><br /><br />
+                <label> Create username: </label><input type="text" name="Create_username" class="box" /><br /><br />
+                <label> Create password: </label><input type="password" name="Create_password" class="box" /><br /><br />
+                <label> Confirm password: </label><input type="password" name="Confirm_password" class="box" /><br /><br />
+                <label> Address: </label><input type="address" name="Address" class="box" /><br /><br />
+                <label> Email: </label><input type="email" name="email" class="box" /><br /><br />
                 <input type="submit" value="Submit" name="Submit" /><br />
+
+                <label>
+                    <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                  </label>
             </form>
             </div>
         </div>
