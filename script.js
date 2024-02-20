@@ -226,7 +226,7 @@ const getCookie = (cName) => {
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('cookies-btn').addEventListener("click", () => {
         document.getElementById('cookie').style.display = "none";
-        setCookie("cookiesAccepted", true, 90);
+        setCookie("cookiesAccepted", true, 90); // Set a cookie when the user accepts cookies
     });
 
     // Check if cookie consent has been given and display the popup if not
@@ -235,10 +235,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Function to display cookie consent popup
 const cookieMessage = () => {
-    if (!getCookie("cookiesAccepted")) {
+    if (!getCookie("cookiesAccepted")) { // Check if the cookie has been accepted
         document.getElementById('cookie').style.display = "block";
     }
 }
+
+window.onload = function() {
+    // Call cookieMessage function when the page loads
+    cookieMessage();
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Call the loadCartFromLocalStorage function when the page loads
