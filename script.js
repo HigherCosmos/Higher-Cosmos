@@ -201,6 +201,45 @@ function displayProducts(products) {
         productsContainer.appendChild(productDiv);
     });
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Function to set cookie
+const setCookie = (cName, cValue, expDays) => {
+    let date = new Date();
+    date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = cName + "=" + cValue + ";" + expires + "; path=/";
+}
+
+// Function to get cookie
+const getCookie = (cName) => {
+    const name = cName + "=";
+    const cDecoded = decodeURIComponent(document.cookie);
+    const cArr = cDecoded.split(";");
+    let value = "";
+    cArr.forEach(val => {
+        if(val.trim().indexOf(name) === 0) value = val.trim().substring(name.length);
+    });
+    return value;
+}
+
+// Event listener for cookie consent button
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById('cookies-btn').addEventListener("click", () => {
+        document.getElementById('cookie').style.display = "none";
+        setCookie("cookiesAccepted", true, 90);
+    });
+
+    // Check if cookie consent has been given and display the popup if not
+    cookieMessage();
+});
+
+// Function to display cookie consent popup
+const cookieMessage = () => {
+    if (!getCookie("cookiesAccepted")) {
+        document.getElementById('cookie').style.display = "block";
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Call the loadCartFromLocalStorage function when the page loads
 loadCartFromLocalStorage();
