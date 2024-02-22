@@ -16,7 +16,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
                     <li><a href="Cart.html">Cart</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact" onclick="scrollToContact()">Contact</a></li>
                     <li><a href="Info.html">Info</a></li>    
                     <li><a href="Create Account.html">Signup</a></li>
                 </ul>
@@ -40,7 +40,7 @@
             <h3>Dove Exfoliating Soap</h3>
             <p>An exfoliating bar of soap that gently cleanses the skin while diminishing bacteria and rough texture with the beads. </p>
             <p>$5.99</p>
-            <button onclick="addToCart('Dove Exfoliating Soap', 5.99)">Add to Cart</button>
+            <button class="add_button" onclick="addToCart('Dove Exfoliating Soap', 5.99, 'Dove Soap.jpg')">Add to Cart</button>
         </div>
 
         <div class="product">
@@ -49,7 +49,7 @@
             <p>Cleanse your scalp and free yourself of dandruff with the cooling effects of menthol. 
                 Feel revitalized when you exit the shower with a clean head on your shoulders.</p>
             <p>$10.99</p>
-            <button onclick="addToCart('Head and Shoulders-Cool Menthol', 10.99)">Add to Cart</button>
+            <button class="add_button" onclick="addToCart('Head and Shoulders-Cool Menthol', 10.99, 'Cool Menthol.jpg')">Add to Cart</button>
         </div>
 
         <div class="product">
@@ -57,7 +57,7 @@
             <h3>Head and Shoulders Conditioner-Coconut Clean</h3>
             <p>Spruce up your ends and freshen up your scalp with the moisture of coconuts. </p>
             <p>$5.00</p>
-            <button onclick="addToCart('Coconut Clean', 5.00)">Add to Cart</button>
+            <button class="add_button" onclick="addToCart('Coconut Clean', 5.00, 'Coconut Clean.jpg')">Add to Cart</button>
         </div>
 
         <div class="product">
@@ -67,7 +67,7 @@
                 allow the skin to heal from comedones, and remove bacteria buildup in the pores.
             </p>
             <p>$13.49</p>
-            <button onclick="addToCart('CeraVe-Benzoyl Peroxide', 13.49)">Add to Cart</button>
+            <button class="add_button" onclick="addToCart('CeraVe-Benzoyl Peroxide', 13.49, 'Benzoyl.jpg')">Add to Cart</button>
         </div>
 
         <div class="product">
@@ -75,7 +75,7 @@
             <h3>13 in 1 Shampoo</h3>
             <p>Description of 13 in 1 Shampoo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <p>$29.99</p>
-            <button onclick="addToCart('13 in 1 Shampoo', 29.99)">Add to Cart</button>
+            <button class="add_button" onclick="addToCart('13 in 1 Shampoo', 29.99, '13in1shampoo.jpg')">Add to Cart</button>
         </div>
 
         <div class="product">
@@ -85,7 +85,7 @@
                 and brighten up those blemishes for an even skin tone.
             </p>
             <p>$14.99</p>
-            <button onclick="addToCart('CeraVe-Salicylic Acid', 14.99)">Add to Cart</button>
+            <button class="add_button" onclick="addToCart('CeraVe-Salicylic Acid', 14.99, 'Salicyclic.jpg')">Add to Cart</button>
         </div>
 
         <div class="product">
@@ -94,7 +94,7 @@
             <p>Hydrate your skin with vitamin C and B3 complex for smoother, more radiant skin.
             </p>
             <p>$11.99</p>
-            <button onclick="addToCart('Olay-Vitamin C', 11.99)">Add to Cart</button>
+            <button class="add_button" onclick="addToCart('Olay-Vitamin C', 11.99, 'Vitamin C.jpg')">Add to Cart</button>
         </div>
 
         <div class="product">
@@ -102,7 +102,7 @@
             <h3>Product 9</h3>
             <p>Description of Product 9. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <p>$1</p>
-            <button onclick="addToCart('Product 9', 1)">Add to Cart</button>
+            <button class="add_button" onclick="addToCart('Product 9', 1, '')">Add to Cart</button>
         </div>
 
         <div class="product">
@@ -110,7 +110,7 @@
             <h3>Product 10</h3>
             <p>Description of Product 10. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <p>$1</p>
-            <button onclick="addToCart('Product 10', 1)">Add to Cart</button>
+            <button class="add_button" onclick="addToCart('Product 10', 1, '')">Add to Cart</button>
         </div>
 
         <!-- Add more featured products as needed -->
@@ -124,7 +124,7 @@
 -->        
     </section>
 
-    <section id="contact">
+    <section id="contact" class="contact-section">
         <h2>Contact Us</h2>
         <p>Have questions? Reach out to us at <a href="mailto:HigherCosmosSupport@gmail.com">HigherCosmosSupport@gmail.com</a></p>
     </section>
@@ -153,13 +153,13 @@
 
 
     <section>
-        <div class="shoppage">
-            <nav class="shoppage">
+        <div class="shop_page">
+            <nav class="shop_page">
                 <h1>Shop Pages</h1>
                 <ul>
-                <a href="shop.html">1</a></li>
-                <a href="shop2.html">2</a></li>
-                <a href="shop3.html">3</a></li>
+                <a href="shop.html" class="">1</a></li>
+                <a href="shop2.html" class="">2</a></li>
+                <a href="shop3.html" class="">3</a></li>
             </ul>
             </nav>
             </div>

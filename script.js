@@ -15,6 +15,27 @@ const products = [
     // Add more products as needed
 ];
 
+// Smooth scroll to contact section and highlight
+function scrollToContact() {
+    const contactSection = document.getElementById('contact');
+    const offsetTop = contactSection.offsetTop;
+
+    // Smoothly scroll to the contact section
+    window.scroll({
+        top: offsetTop,
+        behavior: 'smooth'
+    });
+
+    // Add pulse animation
+    contactSection.classList.add('pulse');
+
+    // Remove pulse animation
+    setTimeout(() => {
+        contactSection.classList.remove('pulse');
+    }, 1500); // 1500 milliseconds = 1.5 seconds
+}
+
+
 // Function to handle Enter key press in the search bar
 function handleSearchKey(event) {
     if (event.key === 'Enter') {
@@ -154,7 +175,7 @@ function addToCart(productName, price, image) {
         cart[productName].quantity += 1;
     } else {
         // If the product is not in the cart, add it with quantity 1
-        cart[productName] = { price, quantity: 1, image };
+        cart[productName] = { price, quantity: 1, image }; // Ensure image is included here
     }
 
     // Save the cart data to localStorage
@@ -163,6 +184,7 @@ function addToCart(productName, price, image) {
     // Update the cart display
     updateCartDisplay();
 }
+
 
 // Function to remove items from the cart
 function removeFromCart(productName) {
@@ -201,6 +223,7 @@ function displayProducts(products) {
         productsContainer.appendChild(productDiv);
     });
 }
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Function to set cookie
 const setCookie = (cName, cValue, expDays) => {
@@ -249,3 +272,6 @@ window.onload = function() {
 
 // Call the loadCartFromLocalStorage function when the page loads
 loadCartFromLocalStorage();
+
+document.querySelector('a[href="#contact"]').addEventListener('click', scrollToContact);
+

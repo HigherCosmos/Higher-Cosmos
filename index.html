@@ -17,7 +17,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
                     <li><a href="Cart.html">Cart</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact" onclick="scrollToContact()">Contact</a></li>
                     <li><a href="Info.html">Info</a></li>    
                     <li><a href="Create Account.html">Signup</a></li>
                 </ul>
@@ -41,7 +41,8 @@
             <h3>Dove Exfoliating Soap</h3>
             <p>An exfoliating bar of soap that gently cleanses the skin while diminishing bacteria and rough texture with the beads. </p>
             <p>$5.99</p>
-            <button onclick="addToCart('Dove Exfoliating Soap', 5.99)">Add to Cart</button>
+            <button class="add_button" onclick="addToCart('Dove Exfoliating Soap', 5.99, 'Dove Soap.jpg')">Add to Cart</button>
+
         </div>
 
         <div class="product">
@@ -50,7 +51,7 @@
             <p>Cleanse your scalp and free yourself of dandruff with the cooling effects of menthol. 
                 Feel revitalized when you exit the shower with a clean head on your shoulders.</p>
             <p>$10.99</p>
-            <button onclick="addToCart('Head and Shoulders-Cool Menthol', 10.99)">Add to Cart</button>
+            <button class="add_button" onclick="addToCart('Head and Shoulders-Cool Menthol', 10.99, 'Cool Menthol.jpg')">Add to Cart</button>
         </div>
 
         <div class="product">
@@ -58,18 +59,17 @@
             <h3>Head and Shoulders Conditioner-Coconut Clean</h3>
             <p>Spruce up your ends and freshen up your scalp with the moisture of coconuts. </p>
             <p>$4.99</p>
-            <button onclick="addToCart('Coconut Clean', 4.99)">Add to Cart</button>
+            <button class="add_button" onclick="addToCart('Coconut Clean', 4.99, 'Coconut Clean.jpg')">Add to Cart</button>
         </div>
 
         <div class="product">
-            <img src="13in1shampoo.jpg" alt="13 in 1 Shampoo" style="width: 100px; height: 100px;">
-            <h3>13 in 1 Shampoo</h3>
-            <p>This shampoo is a product that men  dream of. It has shampoo, conditioner, body-wash, toothpaste,
-            mouthwash, deodorant, floss, and several other products. This one bottle will single-handedly lower 
-            the amount of product you need to keep track of.
+            <img src="Salicyclic.jpg" alt="CeraVe-Salicylic Acid" style="width: 150px; height: 150px;">
+            <h3>CeraVe-Salicylic Acid</h3>
+            <p>This water based cleanser contains 2% salicylic acid. Formulated to reduce the appearance of blackheads
+                and brighten up those blemishes for an even skin tone.
             </p>
-            <p>$29.99</p>
-            <button onclick="addToCart('13 in 1 Shampoo', 29.99)">Add to Cart</button>
+            <p>$14.99</p>
+            <button class="add_button" onclick="addToCart('CeraVe-Salicylic Acid', 14.99, 'Salicyclic.jpg')">Add to Cart</button>
         </div>
 
         <div class="product">
@@ -79,7 +79,7 @@
                 and brighten up those blemishes for an even skin tone.
             </p>
             <p>$14.99</p>
-            <button onclick="addToCart('Salicylic Acid', 14.99)">Add to Cart</button>
+            <button class="add_button" onclick="addToCart('Salicylic Acid', 14.99, 'Salicyclic.jpg')">Add to Cart</button>
         </div>
 
         <!-- Add more featured products as needed -->
@@ -88,7 +88,7 @@
     <section id="cta">
         <h2>Transform Your Beauty Routine</h2>
         <p>Explore our premium cosmetic products and elevate your beauty experience.</p>
-        <a href="shop.html">Shop Now</a>
+        <a href="shop.html" class="shop_now_button">Shop Now</a>
     </section>
 
  <!--   <section id="cart">
@@ -101,14 +101,15 @@
     </section>
 -->
     <section id="info">
-        <h2> Mission To Reach Higher Cosmos </h2>
-        <a href="Info.html">Our Information</a>
+        <h2> Our Mission To Reach Higher Cosmos </h2>
+        <a href="Info.html" class="more_info_button">Our Information</a>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="contact-section">
         <h2>Contact Us</h2>
         <p>Have questions? Reach out to us at <a href="mailto:HigherCosmosSupport@gmail.com">HigherCosmosSupport@gmail.com</a></p>
     </section>
+    
 
 
     <div id="productModal" class="modal">

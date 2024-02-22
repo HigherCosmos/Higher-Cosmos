@@ -67,7 +67,7 @@ section {
 }
 
 .product {
-    border: 1px solid #ddd;
+    border: 3px solid black;
     padding: 10px;
     margin-bottom: 20px;
 }
@@ -121,6 +121,23 @@ section {
     border-radius: 4px;
 }
 
+.remove-button:hover {
+    background-color: #ff6347;
+}
+
+.add_button {
+    background-color: #4caf50;
+    color: white;
+    padding: 0.7em;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.add_button:hover {
+    background-color: #45a049;
+}
+
 .total {
     display: flex;
     align-items: center;
@@ -134,6 +151,54 @@ section {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.shop_now_button{
+    background-color: #0afaea;
+    color: black;
+    padding: 0.7em;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.shop_now_button:hover{
+    background-color: #0afaea;
+}
+
+.more_info_button{
+    background-color: #0afaea;
+    color: black;
+    padding: 0.7em;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.more_info_button:hover{
+    background-color: #0afaea;
+}
+
+.contact-section {
+    text-align: center;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse {
+    animation: pulse 0.5s infinite;
 }
 
 footer {
@@ -151,6 +216,10 @@ footer {
 #searchInput {
     padding: 5px;
     margin: 10px;
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 3px;
+    width: 300px;
 }
 
 /* Add styles for the modal */
@@ -192,7 +261,7 @@ footer {
     cursor: pointer;
 }
 
-.checkout {
+.checkout_button {
     text-decoration: none;
     
 }
