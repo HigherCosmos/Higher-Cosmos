@@ -144,10 +144,10 @@ function updateCartDisplay() {
         itemDiv.className = 'cart-item';
         itemDiv.innerHTML = `
             <div class="product-info">
-                <img src="${image}" alt="${productName}">
+                <img src="${image}" alt="${productName}" onerror="imageError('${productName}')">
                 <div class="text-info">
                     <p>${productName} - $${price.toFixed(2)}</p> 
-                    <p>Quantity: ${quantity}</p>
+                    <p> Quantity: ${quantity}</p>
                     <button class="remove-button" onclick="removeFromCart('${productName}')">Remove</button>
                 </div>
             </div>
@@ -161,6 +161,9 @@ function updateCartDisplay() {
     // Display the total price
     const totalPriceDiv = document.getElementById('total-price');
     totalPriceDiv.innerText = `Total: $${total.toFixed(2)}`;
+
+    // Apply button styles after updating the display
+    applyButtonStyles();
 }
 
 // Function to save cart data to localStorage
