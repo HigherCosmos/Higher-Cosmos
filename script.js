@@ -9,9 +9,13 @@ const products = [
     { name: '13 in 1 Shampoo', price: 29.99, image: '13in1shampoo.jpg' },
     { name: 'CeraVe-Salicylic Acid', price: 14.99, image: 'Salicyclic.jpg' },
     { name: 'Olay-Vitamin C', price: 11.99, image: 'Vitamin C.jpg' },
-    { name: 'Product 9', price: 1, image: 'product9.jpg' },
-    { name: 'Product 10', price: 1, image: 'product10.jpg' }
-    // { name: '', price: , image: '' }
+    { name: 'Hair Clips', price: 4.56, image: 'HairClips.jpg' },
+    { name: 'Hoop Earings', price: 4.25, image: 'HoopEarings.jpg' }, 
+    { name: 'Name', price: 1, image: '' }, 
+    { name: 'Name', price: 1, image: '' },
+    { name: 'Name', price: 1, image: '' }
+
+    // { name: 'Name', price: 1, image: '' }
     // Add more products as needed
 ];
 
@@ -32,7 +36,7 @@ function scrollToContact() {
     // Remove pulse animation
     setTimeout(() => {
         contactSection.classList.remove('pulse');
-    }, 1500); // 1500 milliseconds = 1.5 seconds
+    }, 1000); // 1500 milliseconds = 1.5 seconds
 }
 
 
