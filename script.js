@@ -2,15 +2,15 @@
 
 // Assuming you have a list of products
 const products = [
-    { name: 'Dove Exfoliating Soap', price: 5.99, image: 'Dove Soap.jpg' },
-    { name: 'Head and Shoulders-Cool Menthol', price: 10.99, image: 'Cool Menthol.jpg' },
-    { name: 'Head and Shoulders Conditioner-Coconut Clean', price: 10.99, image: 'Coconut Clean.jpg' },
-    { name: 'CeraVe-Benzoyl Peroxide', price: 13.49, image: 'Benzoyl.jpg' },
-    { name: '13 in 1 Shampoo', price: 29.99, image: '13in1shampoo.jpg' },
-    { name: 'CeraVe-Salicylic Acid', price: 14.99, image: 'Salicyclic.jpg' },
-    { name: 'Olay-Vitamin C', price: 11.99, image: 'Vitamin C.jpg' },
-    { name: 'Hair Clips', price: 4.56, image: 'HairClips.jpg' },
-    { name: 'Hoop Earings', price: 4.25, image: 'HoopEarings.jpg' }, 
+    { name: 'Dove Exfoliating Soap', price: 5.99, image: 'Dove Soap.jpg', category: "soap" },
+    { name: 'Head and Shoulders-Cool Menthol', price: 10.99, image: 'Cool Menthol.jpg', category: "shampoo" },
+    { name: 'Head and Shoulders Conditioner-Coconut Clean', price: 10.99, image: 'Coconut Clean.jpg', category: "conditioner" },
+    { name: 'CeraVe-Benzoyl Peroxide', price: 13.49, image: 'Benzoyl.jpg', category: "skin care" },
+    { name: '13 in 1 Shampoo', price: 29.99, image: '13in1shampoo.jpg', category: "shampoo" },
+    { name: 'CeraVe-Salicylic Acid', price: 14.99, image: 'Salicyclic.jpg', category: "skin care" },
+    { name: 'Olay-Vitamin C', price: 11.99, image: 'Vitamin C.jpg', category: "body wash" },
+    { name: 'Hair Clips', price: 4.56, image: 'HairClips.jpg', category: "hair accessories" },
+    { name: 'Hoop Earings', price: 4.25, image: 'HoopEarings.jpg', category: "jewelry" }, 
     { name: 'Name', price: 1, image: '' }, 
     { name: 'Name', price: 1, image: '' },
     { name: 'Name', price: 1, image: '' }
@@ -56,7 +56,7 @@ function handleSearchKey(event) {
     }
 }
 
-// Function to filter products based on the search query
+//Function to filter products based on the search query
 function searchProducts(event) {
     console.log(event.key); // Log the pressed key (check if 'Enter' is logged)
 
@@ -127,6 +127,7 @@ function scrollToProduct(product) {
     }
 }
 
+
 // Function to load cart data from localStorage
 function loadCartFromLocalStorage() {
     const storedCart = localStorage.getItem('cart');
@@ -135,6 +136,8 @@ function loadCartFromLocalStorage() {
         updateCartDisplay();
     }
 }
+
+
 
 // Function to update the cart display
 function updateCartDisplay() {
