@@ -115,12 +115,19 @@ function closeModal() {
     modal.style.display = 'none';
 }
 
-// Function to find products matching a given category
-function findProductsByCategory(category) {
-    return products.filter(product =>
-        product.category.toLowerCase() === category.toLowerCase()
+// Function to find a matching product based on the search query
+function findMatchingProduct(query) {
+    // Remove spaces from the search query
+    const queryWithoutSpaces = query.replace(/\s/g, '');
+
+    return products.find(product =>
+        // Remove spaces from the product name before comparing
+        product.name.toLowerCase().replace(/\s/g, '').includes(queryWithoutSpaces)
     );
+
+    return matchingProduct;
 }
+
 
 // Function to scroll to the found product
 function scrollToProduct(product) {
@@ -139,7 +146,6 @@ function loadCartFromLocalStorage() {
         updateCartDisplay();
     }
 }
-
 
 
 // Function to update the cart display
