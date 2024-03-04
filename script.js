@@ -108,16 +108,21 @@ function closeModal() {
     modal.style.display = 'none';
 }
 
-// Function to find a matching product based on the search query
+//Function to find a matching product based on the search query
 function findMatchingProduct(query) {
     // Remove spaces from the search query
     const queryWithoutSpaces = query.replace(/\s/g, '');
 
-    return products.find(product =>
-        // Remove spaces from the product name before comparing
-        product.name.toLowerCase().replace(/\s/g, '').includes(queryWithoutSpaces)
+    // Search for products by name or category
+    const matchingProduct = products.find(product =>
+        // Remove spaces from the product name and category before comparing
+        product.name.toLowerCase().replace(/\s/g, '').includes(queryWithoutSpaces) ||
+        product.category.toLowerCase().replace(/\s/g, '').includes(queryWithoutSpaces)
     );
+
+    return matchingProduct;
 }
+
 
 // Function to scroll to the found product
 function scrollToProduct(product) {
@@ -136,7 +141,6 @@ function loadCartFromLocalStorage() {
         updateCartDisplay();
     }
 }
-
 
 
 // Function to update the cart display
