@@ -271,17 +271,31 @@ footer {
 }
 
 .signup_button {
-    background-color: magenta;
-    color: white;
-    padding: 0.7em;
+    background-color: rgb(68, 170, 233);
+    color: black;
+    padding: 0.5em;
     border: none;
-    border-radius: 4px;
+    border-radius: 2px;
     cursor: pointer;
     text-decoration: none;
 }
 
 .signup_button:hover {
-    background-color: darkmagenta;
+    background-color: rgb(36, 135, 174);
+}
+
+.submit_button {
+    background-color: rgb(109, 212, 35);
+    color: black;
+    padding: 0.5em;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.submit_button:hover {
+    background-color: green;
 }
 
 form {
