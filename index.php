@@ -1,3 +1,6 @@
+<?php
+    include_once 'connection.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,13 +11,13 @@
     <link rel="stylesheet" type="text/css" href="HigherCosmosStyles.css">
 </head>
 <body onload="loadCartFromLocalStorage()">
-
+    
     <header>
         <div class="navbar">
             <nav class="navbar-container">
                 <h1>Higher Cosmos</h1>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
                     <li><a href="Cart.html">Cart</a></li>
                     <li><a href="#contact" onclick="scrollToContact()">Contact</a></li>
@@ -36,6 +39,31 @@
 
     <section id="featured-products">
         <h2>Featured Products</h2>
+
+        <?php
+            $sql = "SELECT * FROM Product;";
+            $result = mysqli_query($conn, $sql);
+            
+            while($row = mysqli_fetch_assoc($result)) {
+                $product_id = $row['product_id'];
+                $product_name = $row['product_name'];
+                $product_desc = $row['product_desc'];
+                $product_image = $row['product_image'];
+                $price = $row['price'];
+
+                echo "<div class='product'>
+                <img src='$product_image' alt='13in1' style='width: 150px; height: 150px;'>
+                <h3>'$product_name'</h3>
+                <p>'$product_desc'</p>
+                <p>$'$price'</p>
+                <button class='add_button' onclick='addToCart()'>Add to Cart</button>
+
+                </div>";
+            }
+
+        ?>
+
+        
 
         <div class="product">
             <img src="Dove Soap.jpg" alt="Dove Exfoliating Soap" style="width: 150px; height: 150px;">
