@@ -22,7 +22,7 @@
                     <li><a href="Cart.html">Cart</a></li>
                     <li><a href="#contact" onclick="scrollToContact()">Contact</a></li>
                     <li><a href="Info.html">Info</a></li>    
-                    <li><a href="Create Account.html">Signup</a></li>
+                    <li><a href="SigninLogout.html">Signin</a></li>
                 </ul>
             </nav>
         </div>
@@ -118,6 +118,12 @@
         <a href="shop.html" class="shop_now_button">Shop Now</a>
     </section>
 
+    <section id="info">
+        <h2>Our Mission to Reach Higher Cosmos</h2>
+        <p>Explore our premium cosmetic products and elevate your beauty experience.</p>
+        <a href="info.html" class="more_info_button">Our Information</a>
+    </section>
+
  <!--   <section id="cart">
         <h2>Your Shopping Cart</h2>
         <div id="cart-items" class="cart-items">
@@ -127,17 +133,6 @@
         <button onclick="checkout()">Proceed to Checkout</button>
     </section>
 -->
-    <section id="info">
-        <h2> Our Mission To Reach Higher Cosmos </h2>
-        <a href="Info.html" class="more_info_button">Our Information</a>
-    </section>
-
-    <section id="contact" class="contact-section">
-        <h2>Contact Us</h2>
-        <p>Have questions? Reach out to us at <a href="mailto:HigherCosmosSupport@gmail.com">HigherCosmosSupport@gmail.com</a></p>
-    </section>
-    
-
 
     <div id="productModal" class="modal">
         <div class="modal-content" id="modalContent">
@@ -148,6 +143,11 @@
     <div id="cookie" class="cookie-consent">
         <p>This website uses cookies to ensure you get the best experience on our website. <button id="cookies-btn">Accept</button></p>
     </div>
+
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <p>Have questions? Reach out to us at <a href="mailto:HigherCosmosSupport@gmail.com">HigherCosmosSupport@gmail.com</a></p>
+    </section>
 
     <footer>
         <p>&copy; 2024 Higher Cosmos. All rights reserved.</p>

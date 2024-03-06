@@ -56,25 +56,31 @@ function handleSearchKey(event) {
     }
 }
 
-//Function to filter products based on the search query
+// Function to filter products based on the search query
 function searchProducts(event) {
-    console.log(event.key); // Log the pressed key (check if 'Enter' is logged)
-
     if (event.key === 'Enter') {
         const searchInput = document.getElementById('searchInput');
-        const query = searchInput.value.trim().toLowerCase(); // Trim and convert to lowercase
-        const matchingProduct = findMatchingProduct(query);
+        const query = searchInput.value.trim().toLowerCase();
 
         const modal = document.getElementById('productModal');
         const sorryMessage = document.getElementById('sorryMessage');
 
         if (query !== '') {
-            if (matchingProduct) {
-                // Display product details in the modal
-                displayProductDetails(matchingProduct);
+            // Search by category if the query matches a category
+            const categoryMatch = findProductsByCategory(query);
+            if (categoryMatch.length > 0) {
+                displayProducts(categoryMatch);
                 sorryMessage.style.display = 'none';
             } else {
-                sorryMessage.style.display = 'block';
+                // If not a category, search for products by name
+                const matchingProduct = findMatchingProduct(query);
+                if (matchingProduct) {
+                    // Display product details in the modal
+                    displayProductDetails(matchingProduct);
+                    sorryMessage.style.display = 'none';
+                } else {
+                    sorryMessage.style.display = 'block';
+                }
             }
         } else {
             // Clear the modal and sorry message when the search bar is empty
@@ -83,6 +89,7 @@ function searchProducts(event) {
         }
     }
 }
+
 
 // Function to display product details in the modal
 function displayProductDetails(product) {
@@ -117,7 +124,10 @@ function findMatchingProduct(query) {
         // Remove spaces from the product name before comparing
         product.name.toLowerCase().replace(/\s/g, '').includes(queryWithoutSpaces)
     );
+
+    return matchingProduct;
 }
+
 
 // Function to scroll to the found product
 function scrollToProduct(product) {
@@ -136,7 +146,6 @@ function loadCartFromLocalStorage() {
         updateCartDisplay();
     }
 }
-
 
 
 // Function to update the cart display
