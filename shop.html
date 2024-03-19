@@ -42,6 +42,21 @@
     <section id="featured-products">
         <h2>Our Products</h2>
 
+        <div class="product-grid">
+            <!-- Products will be dynamically inserted here -->
+        </div>
+    
+        <div id="productModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="modalProductName"></h2>
+                <img id="modalProductImage" src="" alt="">
+                <p id="modalProductDescription"></p>
+                <p id="modalProductPrice"></p>
+                <button id="addToCartButton" onclick="addToCart()">Add to Cart</button>
+            </div>
+        </div>
+<!--
         <div class="product">
             <img src="Dove Soap.jpg" alt="Dove Exfoliating Soap" style="width: 150px; height: 150px;">
             <h3>Dove Exfoliating Soap</h3>
@@ -113,13 +128,13 @@
         </div>
 
         <div class="product">
-            <img src="HoopEarings.jpg" alt="Hoop Earings" style="width: 100px; height: 100px;">
+            <img src="GoldHoops.jpg" alt="Hoop Earings" style="width: 100px; height: 100px;">
             <h3>Gold Hoop Earings </h3>
             <p>Gold hoop earings for any dressed up or down occasion.</p>
             <p>$4.25</p>
             <button class="add_button" class="add_button" onclick="addToCart('Hoop Earings', 4.25, 'HoopEarings.jpg')">Add to Cart</button>
         </div>
-
+    -->
         <!-- Add more featured products as needed -->
 <!--        <div class="product">
             <img src=".jpg" alt="Product Name" style="width: 100px; height: 100px;">
