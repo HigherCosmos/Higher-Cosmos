@@ -1,6 +1,7 @@
 // script.js - Shared JavaScript functions
 
 // Assuming you have a list of products
+/*
 const products = [
     { name: 'Dove Exfoliating Soap', price: 5.99, image: 'Dove Soap.jpg', category: "soap" },
     { name: 'Head and Shoulders-Cool Menthol', price: 10.99, image: 'Cool Menthol.jpg', category: "shampoo" },
@@ -18,27 +19,146 @@ const products = [
     // { name: 'Name', price: 1, image: '' }
     // Add more products as needed
 ];
+*/
+const products = [
+    { 
+        name: 'Dove Exfoliating Soap', 
+        price: 5.99, 
+        image: 'Dove Soap.jpg', 
+        description: 'Gentle exfoliating soap for smooth and soft skin.', 
+        category: 'soap' 
+    },
+    { 
+        name: 'Head and Shoulders-Cool Menthol', 
+        price: 10.99, 
+        image: 'Cool Menthol.jpg', 
+        description: 'Refreshing shampoo with cool menthol scent.', 
+        category: 'shampoo' 
+    },
+    { 
+        name: 'Head and Shoulders Conditioner-Coconut Clean', 
+        price: 10.99, 
+        image: 'Coconut Clean.jpg', 
+        description: 'Nourishing conditioner with the essence of coconut.', 
+        category: 'conditioner' 
+    },
+    { 
+        name: 'CeraVe-Benzoyl Peroxide', 
+        price: 13.49, 
+        image: 'Benzoyl.jpg', 
+        description: 'Benzoyl peroxide acne treatment.', 
+        category: 'skin care' 
+    },
+    { 
+        name: '13 in 1 Shampoo', 
+        price: 29.99, 
+        image: '13in1shampoo.jpg', 
+        description: 'Multipurpose shampoo for various hair types.', 
+        category: 'shampoo' 
+    },
+    { 
+        name: 'CeraVe-Salicylic Acid', 
+        price: 14.99, 
+        image: 'Salicyclic.jpg', 
+        description: 'Salicylic acid acne treatment.', 
+        category: 'skin care' 
+    },
+    { 
+        name: 'Olay-Vitamin C', 
+        price: 11.99, 
+        image: 'Vitamin C.jpg', 
+        description: 'Body wash enriched with vitamin C for glowing skin.', 
+        category: 'body wash' 
+    },
+    { 
+        name: 'Hair Clips', 
+        price: 4.56, 
+        image: 'HairClips.jpg', 
+        description: 'Assorted hair clips for styling.', 
+        category: 'hair accessories' 
+    },
+    { 
+        name: 'Hoop Earings', 
+        price: 4.25, 
+        image: 'GoldHoops.jpg', 
+        description: 'Stylish hoop earrings for everyday wear.', 
+        category: 'jewelry' 
+    },
+    // Add more products as needed
+];
 
-// Smooth scroll to contact section and highlight
-function scrollToContact() {
-    const contactSection = document.getElementById('contact');
-    const offsetTop = contactSection.offsetTop;
+// Grid Look
+function displayProductsInGrid() {
+    const productGrid = document.querySelector('.product-grid');
+    productGrid.innerHTML = '';
 
-    // Smoothly scroll to the contact section
-    window.scroll({
-        top: offsetTop,
-        behavior: 'smooth'
+    products.forEach(product => {
+        const productDiv = document.createElement('div');
+        productDiv.classList.add('product');
+        productDiv.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>$${product.price.toFixed(2)}</p>
+            <button class="add-to-cart-btn" onclick="addToCart('${product.name}', ${product.price}, '${product.image}')">Add to Cart</button>
+        `;
+        productGrid.appendChild(productDiv);
+
+        // Add event listener to open modal when clicking on product image or name
+        productDiv.querySelector('img').addEventListener('click', () => openModal(product));
+        productDiv.querySelector('h3').addEventListener('click', () => openModal(product));
     });
-
-    // Add pulse animation
-    contactSection.classList.add('pulse');
-
-    // Remove pulse animation
-    setTimeout(() => {
-        contactSection.classList.remove('pulse');
-    }, 1000); // 1500 milliseconds = 1.5 seconds
 }
 
+// Function to open the modal and display product details
+function openModal(product) {
+    const modal = document.getElementById('productModal');
+    const modalProductName = document.getElementById('modalProductName');
+    const modalProductImage = document.getElementById('modalProductImage');
+    const modalProductDescription = document.getElementById('modalProductDescription');
+    const modalProductPrice = document.getElementById('modalProductPrice');
+    const addToCartButton = document.getElementById('addToCartButton');
+
+    modalProductName.textContent = product.name;
+    modalProductImage.src = product.image;
+    modalProductDescription.textContent = product.description; // Assuming product has a 'description' property
+    modalProductPrice.textContent = `$${product.price.toFixed(2)}`;
+
+    // Set onclick event for Add to Cart button
+    addToCartButton.onclick = () => addToCart(product);
+
+    modal.style.display = 'block';
+}
+
+// Function to handle click events on product squares
+function handleProductClick(product) {
+    const target = event.target;
+    const addToCartButton = target.closest('.add-to-cart-btn');
+    const isModalOpen = document.getElementById('productModal').style.display === 'block';
+
+    if (!addToCartButton && !isModalOpen) {
+        openModal(product);
+    }
+}
+
+
+// Update the product display loop to add event listener to each product
+products.forEach(product => {
+    const productDiv = document.createElement('div');
+    productDiv.classList.add('product');
+    productDiv.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p>$${product.price.toFixed(2)}</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+    `;
+    productDiv.addEventListener('click', () => handleProductClick(product)); // Handle clicks on product squares
+    document.querySelector('.product-grid').appendChild(productDiv);
+});
+
+function closeModal() {
+    const modal = document.getElementById('productModal');
+    modal.style.display = 'none';
+}
 
 // Function to handle Enter key press in the search bar
 function handleSearchKey(event) {
@@ -288,9 +408,28 @@ window.onload = function() {
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+displayProductsInGrid();
 // Call the loadCartFromLocalStorage function when the page loads
 loadCartFromLocalStorage();
 
 document.querySelector('a[href="#contact"]').addEventListener('click', scrollToContact);
 
+// Smooth scroll to contact section and highlight
+function scrollToContact() {
+    const contactSection = document.getElementById('contact');
+    const offsetTop = contactSection.offsetTop;
+
+    // Smoothly scroll to the contact section
+    window.scroll({
+        top: offsetTop,
+        behavior: 'smooth'
+    });
+
+    // Add pulse animation
+    contactSection.classList.add('pulse');
+
+    // Remove pulse animation
+    setTimeout(() => {
+        contactSection.classList.remove('pulse');
+    }, 1000); // 1500 milliseconds = 1.5 seconds
+}
