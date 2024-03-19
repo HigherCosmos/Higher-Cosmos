@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher Cosmos</title>
+    <link rel="stylesheet" type="text/css" href="HigherCosmosStyles.css">
+</head>
+<body onload="loadCartFromLocalStorage()">
+
+    <header>
+        <div class="navbar">
+            <nav class="navbar-container">
+                <h1>Higher Cosmos</h1>
+                <ul>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="Cart.html">Cart</a></li>
+                    <li><a href="#contact" onclick="scrollToContact()">Contact</a></li>
+                    <li><a href="Info.html">Info</a></li>    
+                    <li><a href="SigninLogout.html">Signin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+      <section id="home">
+        <h2>Welcome to Our Shop!</h2>
+        <p>Shop our wide range of products!</p>
+        <!-- Search bar -->
+        <input type="text" id="searchInput" placeholder="Search for products..." oninput="searchProducts(event)" onkeydown="searchProducts(event)">
+        <p id="sorryMessage" style="display: none;">Sorry, no matching products found.</p>
+    </section>
+
+    <section id="featured-products">
+        <h2>Our Products</h2>
+
+        <div class="product">
+            <img src="MenScent1.jpg" alt="Men Scent" style="width: 150px; height: 150px;">
+            <h3> Pepperment Musk</h3>
+            <p>  </p>. </p>
+            <p>$25.99</p>
+            <button class="add_button" onclick="addToCart('Dove Exfoliating Soap', 5.99)">Add to Cart</button>
+        </div>
+
+       <div class="product">
+            <img src="MenScent2.jpg" alt="Men Scent" style="width: 150px; height: 150px;">
+            <h3> </h3>
+            <p>  </p>. </p>
+            <p>$25.99</p>
+            <button class="add_button" onclick="addToCart('Dove Exfoliating Soap', 5.99)">Add to Cart</button>
+        </div>
+
+      <div class="product">
+            <img src="MenScent3.jpg" alt="Men Scent" style="width: 150px; height: 150px;">
+            <h3> </h3>
+            <p>  </p>. </p>
+            <p>$25.99</p>
+            <button class="add_button" onclick="addToCart('Dove Exfoliating Soap', 5.99)">Add to Cart</button>
+        </div>
+
+      
+  <div class="product">
+            <img src="MenScent4.jpg" alt="Men Scent" style="width: 150px; height: 150px;">
+            <h3> </h3>
+            <p>  </p>. </p>
+            <p>$25.99</p>
+            <button class="add_button" onclick="addToCart('Dove Exfoliating Soap', 5.99)">Add to Cart</button>
+        </div>
+
+       <div class="product">
+            <img src="MenScent5.jpg" alt="Men Scent" style="width: 150px; height: 150px;">
+            <h3> </h3>
+            <p>  </p>. </p>
+            <p>$25.99</p>
+            <button class="add_button" onclick="addToCart('Dove Exfoliating Soap', 5.99)">Add to Cart</button>
+        </div>
+
+
+       <div class="product">
+            <img src="MenScent6.jpg" alt="Men Scent" style="width: 150px; height: 150px;">
+            <h3> </h3>
+            <p>  </p>. </p>
+            <p>$25.99</p>
+            <button class="add_button" onclick="addToCart('Dove Exfoliating Soap', 5.99)">Add to Cart</button>
+        </div>
+
+
+       <div class="product">
+            <img src="MenScent7.jpg" alt="Men Scent" style="width: 150px; height: 150px;">
+            <h3> </h3>
+            <p>  </p>. </p>
+            <p>$25.99</p>
+            <button class="add_button" onclick="addToCart('Dove Exfoliating Soap', 5.99)">Add to Cart</button>
+        </div>
+
+
+       <div class="product">
+            <img src="8" alt="Men Scent" style="width: 150px; height: 150px;">
+            <h3> </h3>
+            <p>  </p>. </p>
+            <p>$25.99</p>
+            <button class="add_button" onclick="addToCart('Dove Exfoliating Soap', 5.99)">Add to Cart</button>
+        </div>
+
+      
+
+
+
+        
+     <section>
+        <div class="shop_pages">
+            <nav class="shop_page">
+                <h1>Shop Pages</h1>
+                <ul>
+                <li><a href="shop.html" class="">1</a></li>
+                <li><a href="shop2.html" class="">2</a></li>
+                <li><a href="shop3.html" class="">3</a></li>
+            </ul>
+        </section>
+
+
+
+
+
+        <section id="contact" class="contact-section">
+            <h2>Contact Us</h2>
+            <p>Have questions? Reach out to us at <a href="mailto:HigherCosmosSupport@gmail.com">HigherCosmosSupport@gmail.com</a></p>
+        </section>
+    
+        <div id="productModal" class="modal">
+            <div class="modal-content" id="modalContent">
+                <!-- Modal content goes here -->
+            </div>
+        </div>
+        <div id="cookie" class="cookie-consent">
+            <p>This website uses cookies to ensure you get the best experience on our website. <button id="cookies-btn">Accept</button></p>
+        </div>
+    
+    
+        <section>
+            <div class="shop_page">
+                <nav class="shop_page">
+                    <h1>Shop Pages</h1>
+                    <ul>
+                    <a href="shop.html" class="">1</a></li>
+                    <a href="shop2.html" class="">2</a></li>
+                    <a href="shop3.html" class="">3</a></li>
+                    <a href="shop4.html" class="">3</a></li>
+                </ul>
+                </nav>
+                </div>
+            </section>
+    
+            <footer>
+                <p>&copy; 2024 Higher Cosmos. All rights reserved.</p>
+            </footer>
+
+
+        <script src="HigherCosmosCart.js"></script>
+        <script src="script.js"></script>
+</body>
+</html>
+        
+    
+
+        
