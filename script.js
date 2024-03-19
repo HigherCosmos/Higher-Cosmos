@@ -84,6 +84,114 @@ const products = [
         description: 'Stylish hoop earrings for everyday wear.', 
         category: 'jewelry' 
     },
+    { 
+        name: 'Pepperment Musk', 
+        price: 25.99, 
+        image: 'MenScent1.jpg', 
+        description: 'Men Scent.', 
+        category: 'scent' 
+    },
+    { 
+        name: 'Another Scent', 
+        price: 25.99, 
+        image: 'MenScent2.jpg', 
+        description: 'Another great scent.', 
+        category: 'scent' 
+    },
+    { 
+        name: 'Yet Another Scent', 
+        price: 25.99, 
+        image: 'MenScent3.jpg', 
+        description: 'Yet another amazing scent.', 
+        category: 'scent' 
+    },
+    { 
+        name: 'Cool Breeze Scent', 
+        price: 25.99, 
+        image: 'MenScent4.jpg', 
+        description: 'Refreshing cool breeze scent.', 
+        category: 'scent' 
+    },
+    { 
+        name: 'Ocean Mist Scent', 
+        price: 25.99, 
+        image: 'MenScent5.jpg', 
+        description: 'Refreshing ocean mist scent.', 
+        category: 'scent' 
+    },
+    { 
+        name: 'Mountain Fresh Scent', 
+        price: 25.99, 
+        image: 'MenScent6.jpg', 
+        description: 'Crisp mountain fresh scent.', 
+        category: 'scent' 
+    },
+    { 
+        name: 'Forest Rain Scent', 
+        price: 25.99, 
+        image: 'MenScent7.1.jpg', 
+        description: 'Invigorating forest rain scent.', 
+        category: 'scent' 
+    },
+    { 
+        name: 'Citrus Splash Scent', 
+        price: 25.99, 
+        image: 'MenScent8.jpg', 
+        description: 'Energizing citrus splash scent.', 
+        category: 'scent' 
+    },
+    { 
+        name: 'Space Dream', 
+        price: 25.99, 
+        image: 'WOMScent1.jpg', 
+        description: 'A nice unique combination of mixed oils and flowery components for a dreamy sensation of smell.', 
+        category: 'scent' 
+    },
+    { 
+        name: 'Pink Saturn', 
+        price: 25.99, 
+        image: 'WOMScent2.jpg', 
+        description: 'With special design made for luxury, this scent is meant to feel bright, light, and slightly more noticeable for all day long-lasting smell.', 
+        category: 'scent' 
+    },
+    { 
+        name: 'Nebulous', 
+        price: 25.99, 
+        image: 'WOMScent3.jpg', 
+        description: 'With lavender and vanilla creates a sweet milky smell for home comfort feels.', 
+        category: 'scent' 
+    },
+    { 
+        name: 'Crystal Light', 
+        price: 25.99, 
+        image: 'WOMScent4.jpg', 
+        description: 'A dusty rose oil mix with luminous shimmer and shine.', 
+        category: 'scent' 
+    },
+    { 
+        name: 'Remember Mars', 
+        price: 25.99, 
+        image: 'WOMScent5.jpg', 
+        description: 'The unforgettable strong and feminine mixture of cherry blossoms.', 
+        category: 'scent' 
+    },
+    { 
+        name: 'Venus Sky', 
+        price: 25.99, 
+        image: 'WOMScent6.jpg', 
+        description: 'A jasmine sensation of smell with mahogany tree extracts.', 
+        category: 'scent' 
+    },
+    { 
+        name: 'Martian Sunset', 
+        price: 25.99, 
+        image: 'WOMScent7.jpg', 
+        description: 'Feel out of this world with the element of berries and fresh citrus lemon.', 
+        category: 'scent' 
+    }
+    
+    
+
     // Add more products as needed
 ];
 
