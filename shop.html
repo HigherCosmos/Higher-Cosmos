@@ -28,9 +28,16 @@
         <h2>Welcome to Our Shop!</h2>
         <p>Shop our wide range of products!</p>
         <!-- Search bar -->
-        <input type="text" id="searchInput" placeholder="Search for products..." oninput="searchProducts(event)" onkeydown="searchProducts(event)">
+        <!--<input type="text" id="searchInput" placeholder="Search for products..." oninput="searchProducts(event)" onkeydown="searchProducts(event)">
         <p id="sorryMessage" style="display: none;">Sorry, no matching products found.</p>
-    </section>
+    </section> -->
+
+    <form id="searchForm" action="search.php" method="post">
+        <input type="text" id="searchInput" name="query" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+
+    
 
     <section id="featured-products">
         <h2>Our Products</h2>

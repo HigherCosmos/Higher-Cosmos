@@ -33,9 +33,14 @@
         <p>Discover a higher level of beauty with our premium cosmetic products.</p>
         
         <!-- Update the search input and add an element for the sorry message -->
-        <input type="text" id="searchInput" placeholder="Search for products..." oninput="searchProducts(event)" onkeydown="searchProducts(event)">
+        <!--<input type="text" id="searchInput" placeholder="Search for products..." oninput="searchProducts(event)" onkeydown="searchProducts(event)">
         <p id="sorryMessage" style="display: none;">Sorry, no matching products found.</p>
-    </section>
+    </section> -->
+
+    <form id="searchForm" action="search.php" method="post">
+    <input type="text" id="searchInput" name="query" placeholder="Search...">
+    <button type="submit">Search</button>
+</form>
 
     <section id="featured-products">
         <h2>Featured Products</h2>

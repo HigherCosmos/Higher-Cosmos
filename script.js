@@ -57,7 +57,7 @@ function handleSearchKey(event) {
 }
 
 // Function to filter products based on the search query
-function searchProducts(event) {
+/*function searchProducts(event) {
     if (event.key === 'Enter') {
         const searchInput = document.getElementById('searchInput');
         const query = searchInput.value.trim().toLowerCase();
@@ -88,11 +88,64 @@ function searchProducts(event) {
             sorryMessage.style.display = 'none';
         }
     }
+}*/
+
+<?php
+// Assuming you have products data stored in an array called $products
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the search query from the form submission
+    $query = strtolower(trim($_POST["query"]));
+
+    // Search for matching products
+    $matchingProducts = array_filter($products, function ($product) use ($query) {
+        // Match product name
+        return strpos(strtolower($product["name"]), $query) !== false;
+    });
+
+    // Output the matching products as JSON
+    echo json_encode($matchingProducts);
 }
+?>
+
+document.getElementById('searchForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    // Get the search query
+    const searchInput = document.getElementById('searchInput');
+    const query = searchInput.value.trim().toLowerCase();
+
+    // Send AJAX request to the PHP script
+    fetch('search.php', {
+        method: 'POST',
+        body: new URLSearchParams({
+            'query': query
+        }),
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Handle the response data (matching products)
+        if (data.length > 0) {
+            // Display matching products
+            displayProducts(data);
+            document.getElementById('sorryMessage').style.display = 'none';
+        } else {
+            // No matching products found
+            document.getElementById('sorryMessage').style.display = 'block';
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+
 
 
 // Function to display product details in the modal
-function displayProductDetails(product) {
+/*function displayProductDetails(product) {
     const modal = document.getElementById('productModal');
     const modalContent = document.getElementById('modalContent');
 
@@ -126,7 +179,7 @@ function findMatchingProduct(query) {
     );
 
     return matchingProduct;
-}
+}*/
 
 
 // Function to scroll to the found product
