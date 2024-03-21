@@ -45,9 +45,9 @@ body {
 .navbar a {
     color: black;
     text-decoration: none;
-    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: white;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .navbar a:hover {
@@ -55,6 +55,15 @@ body {
     background-color: #fff;
     border-radius: 10px;
     padding: 3px;
+}
+
+.navbar-container h1 a.home-link {
+    /* custom styles for the home link */
+    color: black;
+    text-decoration: none;
+    font-size: 40px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
 }
 
 .title {
@@ -423,4 +432,22 @@ form > h1 {
 
 #addToCartButton:hover {
     background-color: #218838;
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000; /* Ensure it's above other elements */
+    animation: fadeOut 3s ease-in-out; /* Add animation */
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }
