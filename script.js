@@ -468,6 +468,19 @@ function saveCartToLocalStorage() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
+// Function to display notification
+function displayNotification(productName) {
+    const notification = document.createElement('div');
+    notification.classList.add('notification');
+    notification.textContent = `${productName} added to cart`;
+    document.body.appendChild(notification);
+
+    // Remove notification after a few seconds
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
+
 // Function to add items to the cart
 function addToCart(productName, price, image) {
     if (cart[productName]) {
@@ -483,8 +496,11 @@ function addToCart(productName, price, image) {
 
     // Update the cart display
     updateCartDisplay();
-}
 
+    // Display notification
+    displayNotification(productName);
+
+}
 
 // Function to remove items from the cart
 function removeFromCart(productName) {
@@ -522,6 +538,13 @@ function displayProducts(products) {
         `;
         productsContainer.appendChild(productDiv);
     });
+}
+
+// Function to clear the entire cart
+function clearCart() {
+    cart = {}; // Clear the cart object
+    saveCartToLocalStorage(); // Save the updated cart to local storage
+    updateCartDisplay(); // Update the cart display
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
