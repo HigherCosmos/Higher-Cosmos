@@ -1,5 +1,6 @@
 <?php
     include_once 'connection.php';
+    
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +19,7 @@
                 <h1>Higher Cosmos</h1>
                 <ul>
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="shop.php">Shop</a></li>
                     <li><a href="Cart.html">Cart</a></li>
                     <li><a href="#contact" onclick="scrollToContact()">Contact</a></li>
                     <li><a href="Info.html">Info</a></li>    
