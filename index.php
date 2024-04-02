@@ -1,5 +1,16 @@
 <?php
     include_once 'connection.php';
+
+        if(isset($_POST["add_to_cart"])) {
+            $product_name = $_POST['product_name'];
+            $product_image = $_POST['product_image'];
+            $price = $_POST['price'];
+            $product_quantity = 1;
+
+            $insert_products = mysqli_query($conn, "INSERT INTO `cart` (`name`, `price`, `image`, quantity) VALUES ('$product_name', '$price', '$product_image', $product_quantity)");
+
+            
+        }
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +30,7 @@
                 <ul>
                     <li><a href="index.php">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
-                    <li><a href="Cart.html">Cart</a></li>
+                    <li><a href="Cart.php">Cart</a></li>
                     <li><a href="#contact" onclick="scrollToContact()">Contact</a></li>
                     <li><a href="Info.html">Info</a></li>    
                     <li><a href="SigninLogout.html">Signin</a></li>
@@ -45,33 +56,42 @@
     <section id="featured-products">
         <h2>Featured Products</h2>
 
+
         <?php
             $sql = "SELECT * FROM Product;";
             $result = mysqli_query($conn, $sql);
-            
+        
             while($row = mysqli_fetch_assoc($result)) {
                 $product_id = $row['product_id'];
                 $product_name = $row['product_name'];
                 $product_desc = $row['product_desc'];
                 $product_image = $row['product_image'];
                 $price = $row['price'];
-
-                echo "<div class='product'>
-                <img src='$product_image' alt='13in1' style='width: 150px; height: 150px;'>
-                <h3>'$product_name'</h3>
-                <p>'$product_desc'</p>
-                <p>$'$price'</p>
-                <button class='add_button' onclick='addToCart()'>Add to Cart</button>
-
-                </div>";
+        ?>
+                <form method="post" action="">
+                    <div class='product'>
+                    <img src=images/<?php echo $product_image?> alt='13in1' style='width: 150px; height: 150px;'>
+                    <h3><?php echo $product_name?></h3>
+                    <p><?php echo $product_desc?></p>
+                    <p>$<?php echo $price?></p>
+                    
+                    <input type="hidden" name="product_name" value="<?php echo $product_name?>">
+                    <input type="hidden" name="product_desc" value="<?php echo $product_desc?>">
+                    <input type="hidden" name="product_image" value="<?php echo $product_image?>">
+                    <input type="hidden" name="price" value="<?php echo $price?>">
+                    <input class="add_button" type="submit" value="Add to Cart" name="add_to_cart">
+                 </div>
+                </form>
+            <?php
             }
 
-        ?>
-
+            
+            ?>
+            
         
-
+<!--
         <div class="product">
-            <img src="Dove Soap.jpg" alt="Dove Exfoliating Soap" style="width: 150px; height: 150px;">
+            <img src="images/Dove Soap.jpg" alt="Dove Exfoliating Soap" style="width: 150px; height: 150px;">
             <h3>Dove Exfoliating Soap</h3>
             <p>An exfoliating bar of soap that gently cleanses the skin while diminishing bacteria and rough texture with the beads. </p>
             <p>$5.99</p>
@@ -80,7 +100,7 @@
         </div>
 
         <div class="product">
-            <img src="Cool Menthol.jpg" alt="Head and Shoulders-Cool Menthol" style="width: 150px; height: 150px;">
+            <img src="images/Cool Menthol.jpg" alt="Head and Shoulders-Cool Menthol" style="width: 150px; height: 150px;">
             <h3>Head and Shoulders-Cool Menthol</h3>
             <p>Cleanse your scalp and free yourself of dandruff with the cooling effects of menthol. 
                 Feel revitalized when you exit the shower with a clean head on your shoulders.</p>
@@ -89,7 +109,7 @@
         </div>
 
         <div class="product">
-            <img src="Coconut Clean.jpg" alt="Coconut Clean" style="width: 150px; height: 150px;">
+            <img src="images/Coconut Clean.jpg" alt="Coconut Clean" style="width: 150px; height: 150px;">
             <h3>Head and Shoulders Conditioner-Coconut Clean</h3>
             <p>Spruce up your ends and freshen up your scalp with the moisture of coconuts. </p>
             <p>$4.99</p>
@@ -97,7 +117,7 @@
         </div>
 
         <div class="product">
-            <img src="Salicyclic.jpg" alt="CeraVe-Salicylic Acid" style="width: 150px; height: 150px;">
+            <img src="images/Salicyclic.jpg" alt="CeraVe-Salicylic Acid" style="width: 150px; height: 150px;">
             <h3>CeraVe-Salicylic Acid</h3>
             <p>This water based cleanser contains 2% salicylic acid. Formulated to reduce the appearance of blackheads
                 and brighten up those blemishes for an even skin tone.
@@ -107,13 +127,13 @@
         </div>
 
         <div class="product">
-            <img src="HairClips.jpg" alt="Hair Clips" style="width: 100px; height: 100px;">
+            <img src="images/HairClips.jpg" alt="Hair Clips" style="width: 100px; height: 100px;">
             <h3>Hair Clips (4Pack) </h3>
             <p>Hair Clips with a four pack variety for hair security with any style of your choice.</p>
             <p>$4.56</p>
             <button class="add_button" onclick="addToCart('Hair Clips', 4.56, 'HairClips.jpg')">Add to Cart</button>
         </div>
-
+        -->
         <!-- Add more featured products as needed -->
     </section>
 

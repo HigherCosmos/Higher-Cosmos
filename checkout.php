@@ -1,3 +1,9 @@
+<?php
+
+    include("connection.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +19,9 @@
             <nav class="navbar-container">
                 <h1>Higher Cosmos</h1>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
-                    <li><a href="Cart.html">Cart</a></li>
+                    <li><a href="Cart.php">Cart</a></li>
                     <li><a href="#contact" onclick="scrollToContact()">Contact</a></li>
                     <li><a href="Info.html">Info</a></li>    
                     <li><a href="SigninLogout.html">Signin</a></li>
@@ -25,7 +31,7 @@
     </header>
     <div class="container"> 
   
-        <form action="#"> 
+        <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post"> 
   
             <div class="row"> 
   
@@ -35,36 +41,21 @@
                     </h3> 
   
                     <div class="inputBox"> 
-                        <label for="name"> 
-                              Full Name: 
-                          </label> 
-                        <input type="text" name="name" id="name" 
+                        Full Name: 
+                        <input type="text" name="customer_name" id="name" 
                                placeholder="Enter your full name" 
                                required> 
                     </div> 
   
                     <div class="inputBox"> 
-                        <label for="email"> 
-                              Email: 
-                          </label> 
-                        <input type="email" name="email" id="email" 
-                               placeholder="Enter email address" 
-                               required> 
-                    </div> 
-  
-                    <div class="inputBox"> 
-                        <label for="address"> 
-                              Address: 
-                          </label> 
+                        Address:  
                         <input type="text" name="address" id="address" 
                                placeholder="Enter address" 
                                required> 
                     </div> 
   
-                    <div class="inputBox"> 
-                        <label for="city"> 
-                              City: 
-                          </label> 
+                    <div class="inputBox">  
+                        City: 
                         <input type="text" name="city" id="city" 
                                placeholder="Enter city" 
                                required> 
@@ -73,17 +64,13 @@
                     <div class="flex"> 
   
                         <div class="inputBox"> 
-                            <label for="state"> 
-                                  State: 
-                              </label> 
+                            State: 
                             <input type="text" name="state" id="state" placeholder="Enter state" required minlength="2" maxlength="2"> 
                         </div> 
   
                         <div class="inputBox"> 
-                            <label for="zip"> 
-                                  Zip Code: 
-                              </label> 
-                            <input type="number" name="zip" id="zip" placeholder="12345" minlength="5" maxlength="5" required> 
+                            Zip Code: 
+                            <input type="text" name="zip" id="zip" placeholder="12345" minlength="5" maxlength="5" required> 
                         </div> 
   
                     </div> 
@@ -92,22 +79,18 @@
                 <div class="col"> 
                     <h3 class="title">Card Information</h3> 
                     <div class="inputBox"> 
-                        <label for="cardName"> 
-                              Name On Card: 
-                          </label> 
-                        <input type="text" name="cardName" id="cardName" placeholder="Enter card name" required> 
+                        Name On Card: 
+                        <input type="text" name="name_on_card" id="cardName" placeholder="Enter card name" required> 
                     </div> 
   
                     <div class="inputBox"> 
-                        <label for="cardNum"> 
-                              Credit Card Number: 
-                          </label> 
-                        <input type="text" name="cardNum" id="cardNum" placeholder="#### #### #### ####" minlength="19" maxlength="19" required> 
+                        Credit Card Number: 
+                        <input type="text" name="card_number" placeholder="#### #### #### ####" minlength="16" maxlength="16" required> 
                     </div> 
   
                     <div class="inputBox"> 
-                        <label for="expMonth">Exp Month:</label> 
-                        <select name="expMonth" id="expMonth"> 
+                        Month:
+                        <select name="exp_month" id="expMonth"> 
                             <option value="">Choose month</option> 
                             <option value="January">January</option> 
                             <option value="February">February</option> 
@@ -127,8 +110,8 @@
                     
                     <div class="flex"> 
                         <div class="inputBox"> 
-                            <label for="expYear">Exp Year:</label> 
-                            <select name="expYear" id="expYear"> 
+                            Exp Year:
+                            <select name="exp_year" id="expYear"> 
                                 <option value="">Choose Year</option> 
                                 <option value="2024">2024</option> 
                                 <option value="2025">2025</option> 
@@ -139,7 +122,7 @@
                         </div> 
   
                         <div class="inputBox"> 
-                            <label for="cvv">CVV</label> 
+                            CVV
                             <input type="text" name="cvv" id="cvv" placeholder="123" minlength="3" maxlength="3" required> 
                         </div> 
                     </div> 
@@ -148,7 +131,7 @@
   
             </div> 
   
-            <input type="submit" value="Confirm" class="submit_btn" onclick="confirmPayment()"> 
+            <input type="submit" value="Submit" class="submit_btn" onclick="confirmPayment()"> 
         </form> 
   
     </div> 
@@ -172,8 +155,39 @@
         <p>&copy; 2024 Higher Cosmos. All rights reserved.</p>
     </footer>
 
-    <script src="HigherCosmosCart.js"></script>
-    <script src="script.js"></script>
+    
     <script type="text/javascript" src="checkout.js"></script>
 </body>
 </html>
+
+<?php
+
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+        $customer_name = filter_input(INPUT_POST, "customer_name", FILTER_SANITIZE_SPECIAL_CHARS);
+        $address = filter_input(INPUT_POST, "address", FILTER_SANITIZE_SPECIAL_CHARS);
+        $city = filter_input(INPUT_POST, "city", FILTER_SANITIZE_SPECIAL_CHARS);
+        $state = filter_input(INPUT_POST, "state", FILTER_SANITIZE_SPECIAL_CHARS);
+        $zip = filter_input(INPUT_POST, "zip", FILTER_SANITIZE_SPECIAL_CHARS);
+        $name_on_card = filter_input(INPUT_POST, "name_on_card", FILTER_SANITIZE_SPECIAL_CHARS);
+        $card_number = filter_input(INPUT_POST, "card_number", FILTER_SANITIZE_SPECIAL_CHARS);
+        $exp_month = filter_input(INPUT_POST, "exp_month", FILTER_SANITIZE_SPECIAL_CHARS);
+        $exp_year = filter_input(INPUT_POST, "exp_year", FILTER_SANITIZE_SPECIAL_CHARS);
+        $cvv = filter_input(INPUT_POST, "cvv", FILTER_SANITIZE_SPECIAL_CHARS);
+
+        $hash_card_number = password_hash($card_number, PASSWORD_DEFAULT);
+        $hash_cvv = password_hash($cvv, PASSWORD_DEFAULT);
+
+        $sql = "INSERT INTO customer (customer_id, customer_name, address, city, state, zip, name_on_card, card_number, exp_month, exp_year, cvv) 
+                VALUES (NULL, '$customer_name', '$address', '$city', '$state', '$zip', '$name_on_card', '$hash_card_number', '$exp_month', '$exp_year', '$hash_cvv')";
+        mysqli_query($conn, $sql);
+        mysqli_close($conn);
+        echo '<script language="javascript" type="text/javascript">';
+        echo 'window.location.replace("Cart.php")';
+        echo '</script>';
+        
+    }
+        
+    
+    
+    
+?>
