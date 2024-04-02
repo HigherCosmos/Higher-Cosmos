@@ -1,19 +1,23 @@
+<?php
+include_once 'connection.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Higher Cosmos</title>
+    <title>Sign up</title>
     <link rel="stylesheet" type="text/css" href="HigherCosmosStyles.css">
 </head>
-<body onload="loadCartFromLocalStorage()">
-
+<body>
     <header>
         <div class="navbar">
             <nav class="navbar-container">
                 <h1>Higher Cosmos</h1>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
                     <li><a href="Cart.html">Cart</a></li>
                     <li><a href="#contact" onclick="scrollToContact()">Contact</a></li>
@@ -24,29 +28,21 @@
         </div>
     </header>
 
-    <section align="center">
-        <h1>Welcome Back!</h1>
-        <h3>Please enter your usename and password.</h3>
+    <div align="center">
+        <div class="container">
+            <form action= "<?php htmlspecialchars($_SERVER("PHP_SELF")) ?>" method="post">
+                <h1>Please fill in this form to create an account.</h1>
+                <label> Create username: </label>
+                <input type="text" name="user_name" id="username" /><br /><br />
+                <label> Create password: </label>
+                <input type="text" name="pass_word" id="password" /><br /><br />
+                <label> Email: </label>
+                <input type="text" name="email" id="emailaddress" /><br /><br />
+                <input type="submit" value="Submit" /><br />
 
-        <div align="center">
-            <div class="container">
-                <form>
-                    <label>Username: </label><input type="text" name="username" class="box" /><br /><br />
-                    <label> Password: </label><input type="password" name="password" class="box" /><br /><br />
-                    <label><input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px">Remember me</label> <a href="index.html" class="submit_button">Submit</a></p>
-                </form>
-            </div>
+            </form>
         </div>
-
-        <p>Don't have an account? <a href="Create Account.php" class="signup_button">Signup Here!</a></p>
-    </section>
-
-
-
-
-
-
-
+    </div>
 
     <div id="productModal" class="modal">
         <div class="modal-content" id="modalContent">
@@ -69,6 +65,20 @@
 
     <script src="HigherCosmosCart.js"></script>
     <script src="script.js"></script>
-    <!-- <script src="cookies.js"></script> -->
+    <script src="cookies.js"></script>
+
 </body>
 </html>
+<?php
+
+
+
+if($_SERVER("REQUEST_METHOD") == "POST"){
+    $user_name = filter_input(INPUT_POST, "user_name", FILTER_SANITIZE_SPECIAL_CHARS);
+    $pass_word = filter_input(INPUT_POST, "pass_word", FILTER_SANITIZE_SPECIAL_CHARS);
+    $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
+    $sql = "INSERT INTO users (username, pass_word, email) VALUES ('$user_name', '$pass_word', $email')";
+    mysqli_query($conn, $sql);
+}
+mysqli_close($conn);
+?>
