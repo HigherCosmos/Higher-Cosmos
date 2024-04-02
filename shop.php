@@ -1,3 +1,8 @@
+<?php
+    include_once 'connection.php';
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +19,7 @@
             <nav class="navbar-container">
                 <h1><a href="index.php" class="home-link">Higher Cosmos</a></h1>
                 <ul>
-                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="shop.php">Shop</a></li>
                     <li><a href="Cart.php">Cart</a></li>                    
                     <li><a href="#contact" onclick="scrollToContact()">Contact</a></li>
                     <li><a href="Info.html">Info</a></li>    
@@ -56,6 +61,30 @@
                 <button id="addToCartButton" onclick="addToCart()">Add to Cart</button>
             </div>
         </div>
+
+
+        <?php
+            $sql = "SELECT * FROM Product;";
+            $result = mysqli_query($conn, $sql);
+            
+            while($row = mysqli_fetch_assoc($result)) {
+                $product_id = $row['product_id'];
+                $product_name = $row['product_name'];
+                $product_desc = $row['product_desc'];
+                $product_image = $row['product_image'];
+                $price = $row['price'];
+
+                echo "<div class='product'>
+                <img src='$product_image' alt='13in1' style='width: 150px; height: 150px;'>
+                <h3>'$product_name'</h3>
+                <p>'$product_desc'</p>
+                <p>$'$price'</p>
+                <button class='add_button' onclick='addToCart()'>Add to Cart</button>
+
+                </div>";
+            }
+
+        ?>
 <!--
         <div class="product">
             <img src="Dove Soap.jpg" alt="Dove Exfoliating Soap" style="width: 150px; height: 150px;">
