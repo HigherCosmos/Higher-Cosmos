@@ -1,6 +1,5 @@
 <?php
     include_once 'connection.php';
-    
 ?>
 
 <!DOCTYPE html>
@@ -34,175 +33,39 @@
         <p>Shop our wide range of products!</p>
         <!-- Search bar -->
         <!--<input type="text" id="searchInput" placeholder="Search for products..." oninput="searchProducts(event)" onkeydown="searchProducts(event)">
-        <p id="sorryMessage" style="display: none;">Sorry, no matching products found.</p>
-    </section> -->
+        <p id="sorryMessage" style="display: none;">Sorry, no matching products found.</p> -->
+    </section> 
 
     <form id="searchForm" action="search.php" method="post">
         <input type="text" id="searchInput" name="query" placeholder="Search...">
         <button type="submit">Search</button>
     </form>
 
-    
-
     <section id="featured-products">
         <h2>Our Products</h2>
-<!--
+
         <div class="product-grid">
-           
+            <?php
+                $sql = "SELECT * FROM Product;";
+                $result = mysqli_query($conn, $sql);
+                
+                while($row = mysqli_fetch_assoc($result)) {
+                    $product_id = $row['product_id'];
+                    $product_name = $row['product_name'];
+                    $product_desc = $row['product_desc'];
+                    $product_image = $row['product_image'];
+                    $price = $row['price'];
+
+                    echo "<div class='product'>
+                    <img src='$product_image' alt='$product_name' style='width: 150px; height: 150px;'>
+                    <h3>$product_name</h3>
+                    <p>$product_desc</p>
+                    <p>$$price</p>
+                    <button class='add_button' onclick='addToCart(\"$product_name\", $price, \"$product_image\")'>Add to Cart</button>
+                    </div>";
+                }
+            ?>
         </div>
-    
-        <div id="productModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <h2 id="modalProductName"></h2>
-                <img id="modalProductImage" src="" alt="">
-                <p id="modalProductDescription"></p>
-                <p id="modalProductPrice"></p>
-                <button id="addToCartButton" onclick="addToCart()">Add to Cart</button>
-            </div>
-        </div>
--->
-
-<?php
-// Fetch products from the database
-$query = "SELECT * FROM products";
-$result = mysqli_query($connection, $query);
-
-// Check if there are any products
-if (mysqli_num_rows($result) > 0) {
-    echo '<div class="product-grid">';
-    
-    // Loop through each product
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo '<div class="product">';
-        echo '<img src="' . $row['image'] . '" alt="' . $row['name'] . '">';
-        echo '<h3>' . $row['name'] . '</h3>';
-        echo '<p>$' . $row['price'] . '</p>';
-        echo '<button class="add-to-cart-btn" onclick="addToCart(\'' . $row['name'] . '\', ' . $row['price'] . ', \'' . $row['image'] . '\')">Add to Cart</button>';
-        echo '</div>';
-    }
-    
-    echo '</div>'; // Close the product-grid div
-} else {
-    echo 'No products found.';
-}
-
-?>
-
-
-        <?php
-            $sql = "SELECT * FROM Product;";
-            $result = mysqli_query($conn, $sql);
-            
-            while($row = mysqli_fetch_assoc($result)) {
-                $product_id = $row['product_id'];
-                $product_name = $row['product_name'];
-                $product_desc = $row['product_desc'];
-                $product_image = $row['product_image'];
-                $price = $row['price'];
-
-                echo "<div class='product'>
-                <img src='$product_image' alt='13in1' style='width: 150px; height: 150px;'>
-                <h3>'$product_name'</h3>
-                <p>'$product_desc'</p>
-                <p>$'$price'</p>
-                <button class='add_button' onclick='addToCart()'>Add to Cart</button>
-
-                </div>";
-            }
-
-        ?>
-<!--
-        <div class="product">
-            <img src="Dove Soap.jpg" alt="Dove Exfoliating Soap" style="width: 150px; height: 150px;">
-            <h3>Dove Exfoliating Soap</h3>
-            <p>An exfoliating bar of soap that gently cleanses the skin while diminishing bacteria and rough texture with the beads. </p>
-            <p>$5.99</p>
-            <button class="add_button" onclick="addToCart('Dove Exfoliating Soap', 5.99, 'Dove Soap.jpg')">Add to Cart</button>
-        </div>
-
-        <div class="product">
-            <img src="Cool Menthol.jpg" alt="Head and Shoulders-Cool Menthol" style="width: 150px; height: 150px;">
-            <h3>Head and Shoulders-Cool Menthol</h3>
-            <p>Cleanse your scalp and free yourself of dandruff with the cooling effects of menthol. 
-                Feel revitalized when you exit the shower with a clean head on your shoulders.</p>
-            <p>$10.99</p>
-            <button class="add_button" onclick="addToCart('Head and Shoulders-Cool Menthol', 10.99, 'Cool Menthol.jpg')">Add to Cart</button>
-        </div>
-
-        <div class="product">
-            <img src="Coconut Clean.jpg" alt="Coconut Clean" style="width: 150px; height: 150px;">
-            <h3>Head and Shoulders Conditioner-Coconut Clean</h3>
-            <p>Spruce up your ends and freshen up your scalp with the moisture of coconuts. </p>
-            <p>$5.00</p>
-            <button class="add_button" onclick="addToCart('Coconut Clean', 5.00, 'Coconut Clean.jpg')">Add to Cart</button>
-        </div>
-
-        <div class="product">
-            <img src="Benzoyl.jpg" alt="CeraVe-Benzoyl Peroxide" style="width: 150px; height: 150px;">            
-            <h3>CeraVe-Benzoyl Peroxide</h3>
-            <p>This creamy based cleanser contains 4% benzoyl peroxide. Formulated to cleanse the skin,
-                allow the skin to heal from comedones, and remove bacteria buildup in the pores.
-            </p>
-            <p>$13.49</p>
-            <button class="add_button" onclick="addToCart('CeraVe-Benzoyl Peroxide', 13.49, 'Benzoyl.jpg')">Add to Cart</button>
-        </div>
-
-        <div class="product">
-            <img src="13in1shampoo.jpg" alt="13 in 1 Shampoo" style="width: 100px; height: 100px;">
-            <h3>13 in 1 Shampoo</h3>
-            <p>Description of 13 in 1 Shampoo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>$29.99</p>
-            <button class="add_button" onclick="addToCart('13 in 1 Shampoo', 29.99, '13in1shampoo.jpg')">Add to Cart</button>
-        </div>
-
-        <div class="product">
-            <img src="Salicyclic.jpg" alt="CeraVe-Salicylic Acid" style="width: 150px; height: 150px;">
-            <h3>CeraVe-Salicylic Acid</h3>
-            <p>This water based cleanser contains 2% salicylic acid. Formulated to reduce the appearance of blackheads
-                and brighten up those blemishes for an even skin tone.
-            </p>
-            <p>$14.99</p>
-            <button class="add_button" onclick="addToCart('CeraVe-Salicylic Acid', 14.99, 'Salicyclic.jpg')">Add to Cart</button>
-        </div>
-
-        <div class="product">
-            <img src="Vitamin C.jpg" alt="Olay-Vitamin C" style="width: 150px; height: 150px;">
-            <h3>Olay Vitamin C Body Wash w/ B3 vitamins</h3>
-            <p>Hydrate your skin with vitamin C and B3 complex for smoother, more radiant skin.
-            </p>
-            <p>$11.99</p>
-            <button class="add_button" onclick="addToCart('Olay-Vitamin C', 11.99, 'Vitamin C.jpg')">Add to Cart</button>
-        </div>
-
-        <div class="product">
-            <img src="HairClips.jpg" alt="Hair Clips" style="width: 100px; height: 100px;">
-            <h3>Hair Clips (4Pack) </h3>
-            <p>Hair Clips with a four pack variety for hair security with any style of your choice.</p>
-            <p>$4.56</p>
-            <button class="add_button" onclick="addToCart('Hair Clips', 4.56, 'HairClips.jpg')">Add to Cart</button>
-        </div>
-
-        <div class="product">
-            <img src="GoldHoops.jpg" alt="Hoop Earings" style="width: 100px; height: 100px;">
-            <h3>Gold Hoop Earings </h3>
-            <p>Gold hoop earings for any dressed up or down occasion.</p>
-            <p>$4.25</p>
-            <button class="add_button" class="add_button" onclick="addToCart('Hoop Earings', 4.25, 'HoopEarings.jpg')">Add to Cart</button>
-        </div>
-    -->
-        <!-- Add more featured products as needed -->
-<!--        <div class="product">
-            <img src=".jpg" alt="Product Name" style="width: 100px; height: 100px;">
-            <h3>Product Name</h3>
-            <p>Description of Product. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <p>$1.99</p>
-            <button class="add_button" onclick="addToCart('Product Name', 1.99, '.jpg')">Add to Cart</button>
-        </div>
--->        
-
-
-
     </section>
 
     <div id="productModal" class="modal">
