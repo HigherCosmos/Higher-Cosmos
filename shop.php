@@ -20,7 +20,7 @@
                 <h1><a href="index.php" class="home-link">Higher Cosmos</a></h1>
                 <ul>
                     <li><a href="shop.php">Shop</a></li>
-                    <li><a href="Cart.html">Cart</a></li>                    
+                    <li><a href="Cart.php">Cart</a></li>                    
                     <li><a href="#contact" onclick="scrollToContact()">Contact</a></li>
                     <li><a href="Info.html">Info</a></li>    
                     <li><a href="SigninLogout.html">Signin</a></li>

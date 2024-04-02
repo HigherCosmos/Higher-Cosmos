@@ -373,7 +373,7 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
 
 
 // Function to display product details in the modal
-function displayProductDetails(product) {
+/*function displayProductDetails(product) {
     const modal = document.getElementById('productModal');
     const modalContent = document.getElementById('modalContent');
 
@@ -407,7 +407,7 @@ function findMatchingProduct(query) {
     );
 
     return matchingProduct;
-}
+}*/
 
 
 // Function to scroll to the found product
