@@ -46,9 +46,9 @@
 
     <section id="featured-products">
         <h2>Our Products</h2>
-
+<!--
         <div class="product-grid">
-            <!-- Products will be dynamically inserted here -->
+           
         </div>
     
         <div id="productModal" class="modal">
@@ -61,6 +61,33 @@
                 <button id="addToCartButton" onclick="addToCart()">Add to Cart</button>
             </div>
         </div>
+-->
+
+<?php
+// Fetch products from the database
+$query = "SELECT * FROM products";
+$result = mysqli_query($connection, $query);
+
+// Check if there are any products
+if (mysqli_num_rows($result) > 0) {
+    echo '<div class="product-grid">';
+    
+    // Loop through each product
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo '<div class="product">';
+        echo '<img src="' . $row['image'] . '" alt="' . $row['name'] . '">';
+        echo '<h3>' . $row['name'] . '</h3>';
+        echo '<p>$' . $row['price'] . '</p>';
+        echo '<button class="add-to-cart-btn" onclick="addToCart(\'' . $row['name'] . '\', ' . $row['price'] . ', \'' . $row['image'] . '\')">Add to Cart</button>';
+        echo '</div>';
+    }
+    
+    echo '</div>'; // Close the product-grid div
+} else {
+    echo 'No products found.';
+}
+
+?>
 
 
         <?php
