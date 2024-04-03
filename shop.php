@@ -1,5 +1,6 @@
 <?php
-    include_once 'connection.php';
+    include('connection.php');
+
     
 ?>
 
@@ -37,12 +38,39 @@
         <p id="sorryMessage" style="display: none;">Sorry, no matching products found.</p>
     </section> -->
 
-    <form id="searchForm" action="search.php" method="post">
-        <input type="text" id="searchInput" name="query" placeholder="Search...">
-        <button type="submit">Search</button>
-    </form>
+    <!-- HTML search form -->
+    <form method="post" action="shop.php">
+    <input type="text" name="search" placeholder="Search..." required>
+    <input type="submit" value="Search">
+</form>
 
+<?php
+// search.php (process search when form submitted)
+if (isset($_POST["search"])) {
+    $searchTerm = $_POST["search"];
     
+    //$conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    
+    // Search for matching records
+    $sql = "SELECT * FROM product WHERE title LIKE '%$searchTerm%' OR content LIKE '%$searchTerm%'";
+    $result = mysqli_query($conn, $sql);
+    
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<div>{$row['title']} - {$row['content']}</div>";
+        }
+    } else {
+        echo "No results found";
+    }
+    
+    mysqli_close($conn);
+}
+
+?>
+
 
     <section id="featured-products">
         <h2>Our Products</h2>
