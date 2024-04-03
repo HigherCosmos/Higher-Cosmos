@@ -1,5 +1,6 @@
 <?php
     include_once 'connection.php';
+    
 ?>
 
 <!DOCTYPE html>
@@ -33,39 +34,44 @@
         <p>Shop our wide range of products!</p>
         <!-- Search bar -->
         <!--<input type="text" id="searchInput" placeholder="Search for products..." oninput="searchProducts(event)" onkeydown="searchProducts(event)">
-        <p id="sorryMessage" style="display: none;">Sorry, no matching products found.</p> -->
-    </section> 
+        <p id="sorryMessage" style="display: none;">Sorry, no matching products found.</p>
+    </section> -->
 
     <form id="searchForm" action="search.php" method="post">
         <input type="text" id="searchInput" name="query" placeholder="Search...">
         <button type="submit">Search</button>
     </form>
 
+    
+
     <section id="featured-products">
         <h2>Our Products</h2>
 
-        <div class="product-grid">
-            <?php
-                $sql = "SELECT * FROM Product;";
-                $result = mysqli_query($conn, $sql);
-                
-                while($row = mysqli_fetch_assoc($result)) {
-                    $product_id = $row['product_id'];
-                    $product_name = $row['product_name'];
-                    $product_desc = $row['product_desc'];
-                    $product_image = $row['product_image'];
-                    $price = $row['price'];
 
-                    echo "<div class='product'>
-                    <img src='$product_image' alt='$product_name' style='width: 150px; height: 150px;'>
-                    <h3>$product_name</h3>
-                    <p>$product_desc</p>
-                    <p>$$price</p>
-                    <button class='add_button' onclick='addToCart(\"$product_name\", $price, \"$product_image\")'>Add to Cart</button>
-                    </div>";
-                }
-            ?>
-        </div>
+        <?php
+            $sql = "SELECT * FROM Product;";
+            $result = mysqli_query($conn, $sql);
+            
+            while($row = mysqli_fetch_assoc($result)) {
+                $product_id = $row['product_id'];
+                $product_name = $row['product_name'];
+                $product_desc = $row['product_desc'];
+                $product_image = $row['product_image'];
+                $price = $row['price'];
+
+                echo "<div class='product'>
+                <img src='$product_image' alt='13in1' style='width: 150px; height: 150px;'>
+                <h3>'$product_name'</h3>
+                <p>'$product_desc'</p>
+                <p>$'$price'</p>
+                <button class='add_button' onclick='addToCart()'>Add to Cart</button>
+
+                </div>";
+            }
+
+        ?>
+
+
     </section>
 
     <div id="productModal" class="modal">
