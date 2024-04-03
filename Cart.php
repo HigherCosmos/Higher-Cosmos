@@ -1,3 +1,7 @@
+<?php
+    include_once 'connection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,26 +15,47 @@
     <header>
         <div class="navbar">
             <nav class="navbar-container">
-                <h1><a href="index.php" class="home-link">Higher Cosmos</a></h1>
+                <h1>Higher Cosmos</h1>
                 <ul>
-                    <li><a href="shop.php">Shop</a></li>
-                    <li><a href="Cart.html">Cart</a></li>                    
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="Cart.php">Cart</a></li>
                     <li><a href="#contact" onclick="scrollToContact()">Contact</a></li>
                     <li><a href="Info.html">Info</a></li>    
                     <li><a href="SigninLogout.html">Signin</a></li>
                 </ul>
             </nav>
         </div>
-    </header>  
+    </header>
+
     
     <section id="cart">
         <h1 class="title">Your Shopping Cart</h1>
         <div id="cart-items" class="cart-items">
             <!-- Cart items will be displayed here -->
+
+            <?php
+                $sql = "SELECT * FROM cart;";
+                $result = mysqli_query($conn, $sql);
+            
+                while($row = mysqli_fetch_assoc($result)) {
+                    $product_name = $row['name'];
+                    $product_quantity = $row['quantity'];
+                    $product_image = $row['image'];
+                    $price = $row['price'];
+            ?>
+                    <img src=images/<?php echo $product_image?> alt='13in1' style='width: 150px; height: 150px;'>
+                    <h3><?php echo $product_name?></h3>
+                    <p>Quantity: <?php echo $product_quantity?></p>
+                    <p>$<?php echo $price?></p>
+            
+            <?php
+                }
+            ?>
         </div>
         <div class="total">
             <div id="total-price"></div>
-            <a href="checkout.html" class="checkout_button" onclick="checkout()">Proceed to Checkout</a>
+            <a href="checkout.php" class="checkout_button" onclick="checkout()">Proceed to Checkout</a>
             <button class="remove-button" id="remove-all-btn" onclick="clearCart()">Remove All</button>
         </div>
     </section>

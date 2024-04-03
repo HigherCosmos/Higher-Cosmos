@@ -1,4 +1,4 @@
-let cardNumInput = document.querySelector('#cardNum');
+/*let cardNumInput = document.querySelector('#cardNum');
   
 cardNumInput.addEventListener('keyup', () => { 
     let cNumber = cardNumInput.value; 
@@ -9,7 +9,7 @@ cardNumInput.addEventListener('keyup', () => {
         cNumber = cNumber.join(" "); 
         cardNumInput.value = cNumber; 
     } 
-})
+})*/
 
 function confirmPayment() {
     var Name = document.getElementById('name');
@@ -31,8 +31,8 @@ function confirmPayment() {
     else {
         var success = "Payment Successful";
         alert(success);
-        window.close("checkout.html");
-        window.open("Cart.html");
+        window.close("checkout.php");
+        window.open("Cart.php");
 
 
     }
@@ -43,5 +43,20 @@ function removeAll() {
     var cartItems = document.getElementById('cart-items')[0]
     while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild);
+    }
+}
+
+function checkout_complete() {
+    if (Name.value === '' || email.value === '' || address.value === '' || city.value === '' || state.value === '' || zip.value === '' || cardName.value === '' || cardNumber.value === '' || month.value === '' || year.value === '' || cvv.value === '') {
+        var fail = "Enter Valid Information";
+        alert(fail);
+    }
+    else {
+        var success = "Payment Successful";
+        alert(success);
+        window.close("checkout.php");
+        window.open("Cart.php");
+
+
     }
 }
