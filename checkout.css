@@ -16,6 +16,7 @@
     width: 100%;
     height: auto;
     padding: 10px;
+    background-image: url("images/spacebackground.jpg");
     background-color: #7a7f7f;
     border-radius: 0;
 }
@@ -84,17 +85,12 @@
 .col .title { 
     font-size: 20px; 
     color: rgb(0, 0, 0); 
-    padding-bottom: 5px; 
+    padding-top: 5px; 
     text-align: center;
 } 
   
 .col .inputBox { 
     margin: 15px 0; 
-} 
-  
-.col .inputBox label { 
-    margin-bottom: 10px; 
-    display: block; 
 } 
   
 .col .inputBox input, 
@@ -120,7 +116,7 @@
   
 .col .flex .inputBox { 
     flex: 1 1; 
-    margin-top: 5px; 
+    margin-top: 0; 
     align-items: flex-end;
 } 
   
