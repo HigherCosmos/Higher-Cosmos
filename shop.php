@@ -55,20 +55,28 @@ if (isset($_POST["search"])) {
     }
     
     // Search for matching records
-    $sql = "SELECT * FROM product WHERE title LIKE '%$searchTerm%' OR content LIKE '%$searchTerm%'";
+    $sql = "SELECT * FROM product WHERE LOWER(product_name) LIKE '%" . strtolower($searchTerm) . "%'";
     $result = mysqli_query($conn, $sql);
-    
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<div>{$row['title']} - {$row['content']}</div>";
-        }
-    } else {
-        echo "No results found";
+
+    while($row = mysqli_fetch_assoc($result)) {
+        $product_id = $row['product_id'];
+        $product_name = $row['product_name'];
+        $product_desc = $row['product_desc'];
+        $product_image = $row['product_image'];
+        $price = $row['price'];
+
+        echo "<div class='product'>
+        <img src='$product_image' alt='13in1' style='width: 150px; height: 150px;'>
+        <h3>'$product_name'</h3>
+        <p>'$product_desc'</p>
+        <p>$'$price'</p>
+        <button class='add_button' onclick='addToCart()'>Add to Cart</button>
+
+        </div>";
     }
     
     mysqli_close($conn);
 }
-
 ?>
 
 
