@@ -66,6 +66,29 @@ body {
     -webkit-text-stroke-color: white;
 }
 
+/************************************************************************************************************************/
+#info {
+    text-align: center;
+    padding: 50px;
+}
+
+#info img {
+    display: block;
+    margin: 0 auto 20px; /* Center the image and add some space below */
+    max-width: 100%; /* Ensure the image does not exceed its container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+#info h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#info p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+/************************************************************************************************************************/
 .title {
     display: flex;
     justify-content: space-around;

@@ -44,8 +44,8 @@
         
         <!-- Update the search input and add an element for the sorry message -->
         <!--<input type="text" id="searchInput" placeholder="Search for products..." oninput="searchProducts(event)" onkeydown="searchProducts(event)">
-        <p id="sorryMessage" style="display: none;">Sorry, no matching products found.</p>
-    </section> -->
+        <p id="sorryMessage" style="display: none;">Sorry, no matching products found.</p>-->
+    </section> 
 
     <!--<form id="searchForm" action="search.php" method="post">
     <input type="text" id="searchInput" name="query" placeholder="Search...">
@@ -124,52 +124,17 @@ if (isset($_POST["search"])) {
     mysqli_close($conn);
 }
 ?>
-<!--
-        <div class="product">
-            <img src="images/Dove Soap.jpg" alt="Dove Exfoliating Soap" style="width: 150px; height: 150px;">
-            <h3>Dove Exfoliating Soap</h3>
-            <p>An exfoliating bar of soap that gently cleanses the skin while diminishing bacteria and rough texture with the beads. </p>
-            <p>$5.99</p>
-            <button class="add_button" onclick="addToCart('Dove Exfoliating Soap', 5.99, 'Dove Soap.jpg')">Add to Cart</button>
+    </section>
 
-        </div>
-
-        <div class="product">
-            <img src="images/Cool Menthol.jpg" alt="Head and Shoulders-Cool Menthol" style="width: 150px; height: 150px;">
-            <h3>Head and Shoulders-Cool Menthol</h3>
-            <p>Cleanse your scalp and free yourself of dandruff with the cooling effects of menthol. 
-                Feel revitalized when you exit the shower with a clean head on your shoulders.</p>
-            <p>$10.99</p>
-            <button class="add_button" onclick="addToCart('Head and Shoulders-Cool Menthol', 10.99, 'Cool Menthol.jpg')">Add to Cart</button>
-        </div>
-
-        <div class="product">
-            <img src="images/Coconut Clean.jpg" alt="Coconut Clean" style="width: 150px; height: 150px;">
-            <h3>Head and Shoulders Conditioner-Coconut Clean</h3>
-            <p>Spruce up your ends and freshen up your scalp with the moisture of coconuts. </p>
-            <p>$4.99</p>
-            <button class="add_button" onclick="addToCart('Coconut Clean', 4.99, 'Coconut Clean.jpg')">Add to Cart</button>
-        </div>
-
-        <div class="product">
-            <img src="images/Salicyclic.jpg" alt="CeraVe-Salicylic Acid" style="width: 150px; height: 150px;">
-            <h3>CeraVe-Salicylic Acid</h3>
-            <p>This water based cleanser contains 2% salicylic acid. Formulated to reduce the appearance of blackheads
-                and brighten up those blemishes for an even skin tone.
-            </p>
-            <p>$14.99</p>
-            <button class="add_button" onclick="addToCart('CeraVe-Salicylic Acid', 14.99, 'Salicyclic.jpg')">Add to Cart</button>
-        </div>
-
-        <div class="product">
-            <img src="images/HairClips.jpg" alt="Hair Clips" style="width: 100px; height: 100px;">
-            <h3>Hair Clips (4Pack) </h3>
-            <p>Hair Clips with a four pack variety for hair security with any style of your choice.</p>
-            <p>$4.56</p>
-            <button class="add_button" onclick="addToCart('Hair Clips', 4.56, 'HairClips.jpg')">Add to Cart</button>
-        </div>
-        -->
-        <!-- Add more featured products as needed -->
+    <section id="info">
+		<img src = "HigherCosmosLogo.jpg" alt = "Higher Cosmos Logo" style="width: 500px; height: 400px;">
+		<h1>Our Mission to reach Higher Cosmos:</h1>
+		    <p>    
+			    A Higher Cosmos is a designated website for selling cosmetics and for guiding customers while selling a multitude of products . 
+			    Although this is a general idea, I believe integrating this sort of database design will help many consumers to shop for all different cosmetic products. 
+			    Higher Cosmetics goals consist of aiming for a more organizational and out of this world shopping experience offered online for all consumers of beauty care goods. 
+			    With a unique web page design, the ultimate goal is to have an easy use environment for all potential customers.
+		    </p>
     </section>
 
     <section id="cta">
@@ -178,21 +143,6 @@ if (isset($_POST["search"])) {
         <a href="shop.php" class="shop_now_button">Shop Now</a>
     </section>
 
-    <section id="info">
-        <h2>Our Mission to Reach Higher Cosmos</h2>
-        <p>Explore our premium cosmetic products and elevate your beauty experience.</p>
-        <a href="info.html" class="more_info_button">Our Information</a>
-    </section>
-
- <!--   <section id="cart">
-        <h2>Your Shopping Cart</h2>
-        <div id="cart-items" class="cart-items">
-             Cart items will be displayed here <comment here>
-        </div>
-        <div id="total-price"></div>
-        <button onclick="checkout()">Proceed to Checkout</button>
-    </section>
-    -->
 
     <div id="productModal" class="modal">
         <div class="modal-content" id="modalContent">
