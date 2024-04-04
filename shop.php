@@ -80,35 +80,33 @@ if (isset($_POST["search"])) {
 ?>
 
 
-    <section id="featured-products">
-        <h2>Our Products</h2>
-
-
+<section id="featured-products">
+    <h2>Our Products</h2>
+    <div class="product-grid">
         <?php
-            $sql = "SELECT * FROM Product;";
-            $result = mysqli_query($conn, $sql);
-            
-            while($row = mysqli_fetch_assoc($result)) {
-                $product_id = $row['product_id'];
-                $product_name = $row['product_name'];
-                $product_desc = $row['product_desc'];
-                $product_image = $row['product_image'];
-                $price = $row['price'];
+        $sql = "SELECT * FROM Product;";
+        $result = mysqli_query($conn, $sql);
 
-                echo "<div class='product'>
-                <img src='$product_image' alt='13in1' style='width: 150px; height: 150px;'>
-                <h3>'$product_name'</h3>
-                <p>'$product_desc'</p>
-                <p>$'$price'</p>
-                <button class='add_button' onclick='addToCart()'>Add to Cart</button>
+        while ($row = mysqli_fetch_assoc($result)) {
+            $product_id = $row['product_id'];
+            $product_name = $row['product_name'];
+            $product_desc = $row['product_desc'];
+            $product_image = $row['product_image'];
+            $price = $row['price'];
 
-                </div>";
-            }
-
+            echo "<div class='product'>
+                <img src='$product_image' alt='$product_name'>
+                <div class='product-details'>
+                    <h3>$product_name</h3>
+                    <p>$product_desc</p>
+                    <p class='price'>$$price</p>
+                    <button class='add_button' onclick='addToCart(\"$product_name\", $price, \"$product_image\")'>Add to Cart</button>
+                </div>
+            </div>";
+        }
         ?>
-
-
-    </section>
+    </div>
+</section>
 
     <div id="productModal" class="modal">
         <div class="modal-content" id="modalContent">
