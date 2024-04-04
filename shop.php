@@ -124,7 +124,7 @@ if (isset($_POST["search"])) {
     </section>
 
     <footer>
-        <p>&copy; 2024 Higher Cosmos. All rights reserved.</p>
+        <p>&copy; <?php echo date("Y"); ?> Higher Cosmos. All rights reserved.</p>
     </footer>
 
     <!-- <script src="HigherCosmosCart.js"></script> -->

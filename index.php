@@ -175,7 +175,7 @@ if (isset($_POST["search"])) {
     <section id="cta">
         <h2>Transform Your Beauty Routine</h2>
         <p>Explore our premium cosmetic products and elevate your beauty experience.</p>
-        <a href="shop.html" class="shop_now_button">Shop Now</a>
+        <a href="shop.php" class="shop_now_button">Shop Now</a>
     </section>
 
     <section id="info">
@@ -210,7 +210,7 @@ if (isset($_POST["search"])) {
     </section>
 
     <footer>
-        <p>&copy; 2024 Higher Cosmos. All rights reserved.</p>
+        <p>&copy; <?php echo date("Y"); ?> Higher Cosmos. All rights reserved.</p>
     </footer>
 
     <script src="HigherCosmosCart.js"></script>
