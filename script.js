@@ -318,7 +318,7 @@ function handleSearchKey(event) {
     }
 }*/
 
-/*<?php
+<?php
 // Assuming you have products data stored in an array called $products
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -334,7 +334,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Output the matching products as JSON
     echo json_encode($matchingProducts);
 }
-?>*/
+?>
 
 document.getElementById('searchForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the form from submitting normally
@@ -373,7 +373,7 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
 
 
 // Function to display product details in the modal
-/*function displayProductDetails(product) {
+function displayProductDetails(product) {
     const modal = document.getElementById('productModal');
     const modalContent = document.getElementById('modalContent');
 
@@ -616,4 +616,4 @@ function scrollToContact() {
     setTimeout(() => {
         contactSection.classList.remove('pulse');
     }, 1000); // 1500 milliseconds = 1.5 seconds
-}*/
+}

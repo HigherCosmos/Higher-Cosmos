@@ -1,16 +1,36 @@
 <?php
     include_once 'connection.php';
-    
-    if(isset($_POST["add_to_cart"])) {
-                $product_name = $_POST['product_name'];
-                $product_image = $_POST['product_image'];
-                $price = $_POST['price'];
+
+        if(isset($_POST["add_to_cart"])) {
+            $product_id = $_POST['product_id'];
+            $product_name = $_POST['product_name'];
+            $product_image = $_POST['product_image'];
+            $price = $_POST['price'];
+            
+            
+
+            $is_in_cart = mysqli_query($conn, "SELECT product_id FROM cart WHERE product_id = $product_id");
+            $row = mysqli_fetch_assoc($is_in_cart);
+            
+
+            if($row['product_id'] == $product_id){
+                echo "is in cart";
+                $get_quantity = mysqli_query($conn, "SELECT quantity FROM cart WHERE product_id = $product_id");
+                $num = mysqli_fetch_assoc($get_quantity);
+                $product_quantity = $num['quantity'] + 1;
+                $update_quantity = mysqli_query($conn, "UPDATE `cart` SET `quantity` = '$product_quantity' WHERE `cart`.`product_id` = $product_id");
+            }
+            else{
+                echo "not in cart";
                 $product_quantity = 1;
+                $insert_products = mysqli_query($conn, "INSERT INTO `cart` (`name`, `price`, `image`, quantity, product_id) VALUES ('$product_name', '$price', '$product_image', $product_quantity, $product_id)");
 
-                $insert_products = mysqli_query($conn, "INSERT INTO `cart` (`name`, `price`, `image`, quantity) VALUES ('$product_name', '$price', '$product_image', $product_quantity)");
 
-                
-    }
+            }
+
+            
+            
+        }
 ?>
 
 <!DOCTYPE html>
@@ -75,6 +95,7 @@
                 <p><?php echo $product_desc?></p>
                 <p>$<?php echo $price?></p>
                     
+                    <input type="hidden" name="product_id" value="<?php echo $product_id?>">
                     <input type="hidden" name="product_name" value="<?php echo $product_name?>">
                     <input type="hidden" name="product_desc" value="<?php echo $product_desc?>">
                     <input type="hidden" name="product_image" value="<?php echo $product_image?>">
