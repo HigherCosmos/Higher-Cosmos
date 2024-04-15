@@ -14,14 +14,12 @@
             
 
             if($row['product_id'] == $product_id){
-                echo "is in cart";
                 $get_quantity = mysqli_query($conn, "SELECT quantity FROM cart WHERE product_id = $product_id");
                 $num = mysqli_fetch_assoc($get_quantity);
                 $product_quantity = $num['quantity'] + 1;
                 $update_quantity = mysqli_query($conn, "UPDATE `cart` SET `quantity` = '$product_quantity' WHERE `cart`.`product_id` = $product_id");
             }
             else{
-                echo "not in cart";
                 $product_quantity = 1;
                 $insert_products = mysqli_query($conn, "INSERT INTO `cart` (`name`, `price`, `image`, quantity, product_id) VALUES ('$product_name', '$price', '$product_image', $product_quantity, $product_id)");
 
@@ -75,6 +73,7 @@
 
     <section id="featured-products">
         <h2>Featured Products</h2>
+        <div class="product-grid">
 
         <?php
             $sql = "SELECT * FROM Product;";
@@ -86,23 +85,33 @@
                 $product_desc = $row['product_desc'];
                 $product_image = $row['product_image'];
                 $price = $row['price'];
-            }
-        ?>
+                ?>
                 <form method="post" action="">
                     <div class='product'>
-                <img src=images/<?php echo $product_image?> alt='13in1' style='width: 150px; height: 150px;'>
-                <h3><?php echo $product_name?></h3>
-                <p><?php echo $product_desc?></p>
-                <p>$<?php echo $price?></p>
+                        <img src='images/<?php echo $product_image?>' alt='13in1'>
+                        <div class='product-details'>
+                            <h3><?php echo $product_name?></h3>
+                            <p><?php echo $product_desc?></p>
+                            <p>$<?php echo $price?></p>
+                        
+                        
                     
-                    <input type="hidden" name="product_id" value="<?php echo $product_id?>">
-                    <input type="hidden" name="product_name" value="<?php echo $product_name?>">
-                    <input type="hidden" name="product_desc" value="<?php echo $product_desc?>">
-                    <input type="hidden" name="product_image" value="<?php echo $product_image?>">
-                    <input type="hidden" name="price" value="<?php echo $price?>">
-                    <input class="add_button" type="submit" value="Add to Cart" name="add_to_cart">
-                 </div>
+                            <input type="hidden" name="product_id" value="<?php echo $product_id?>">
+                            <input type="hidden" name="product_name" value="<?php echo $product_name?>">
+                            <input type="hidden" name="product_desc" value="<?php echo $product_desc?>">
+                            <input type="hidden" name="product_image" value="<?php echo $product_image?>">
+                            <input type="hidden" name="price" value="<?php echo $price?>">
+                            <input class="add_button" type="submit" value="Add to Cart" name="add_to_cart">
+                        </div>
+                    </div>
                 </form>
+                <?php
+                
+                
+            }
+        ?>
+                
+    </section>
 <?php
 // search.php (process search when form submitted)
 if (isset($_POST["search"])) {
@@ -145,10 +154,10 @@ if (isset($_POST["search"])) {
     mysqli_close($conn);
 }
 ?>
-    </section>
+    
 
     <section id="info">
-		<img src = "HigherCosmosLogo.jpg" alt = "Higher Cosmos Logo" style="width: 500px; height: 400px;">
+		<img src = "images/HigherCosmosLogo.jpg" alt = "Higher Cosmos Logo" style="width: 500px; height: 400px;">
 		<h1>Our Mission to reach Higher Cosmos:</h1>
 		    <p>    
 			    A Higher Cosmos is a designated website for selling cosmetics and for guiding customers while selling a multitude of products . 

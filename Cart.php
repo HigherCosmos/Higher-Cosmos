@@ -3,19 +3,16 @@
 
     if(isset($_GET['product_id'])){
         $product_id = $_GET['product_id'];
-        echo $product_id;
         $is_in_cart = mysqli_query($conn, "SELECT quantity FROM cart WHERE product_id = $product_id");
         $row = mysqli_fetch_assoc($is_in_cart);
         
         $product_quantity = $row['quantity'];
         
         if($product_quantity == 1){
-            echo "true";
             $delete = mysqli_query($conn, "DELETE FROM cart WHERE `cart`.`product_id` = $product_id");
             
         }
         else {
-            echo "false";
             $product_quantity -= 1;
             $delete_one = mysqli_query($conn, "UPDATE `cart` SET `quantity` = '$product_quantity' WHERE product_id = $product_id");
         }
@@ -25,15 +22,7 @@
     $sql = "SELECT * FROM cart where name = 'test1'";
     $result = mysqli_query($conn, $sql);
 
-    if(mysqli_num_rows($result) > 0){
-        $row = mysqli_fetch_assoc($result);
-        echo $row["product_id"] . "<br>";
-        echo $row["name"] . "<br>";
-        echo $row["price"] . "<br>";
-    }
-    else{
-        echo "no products";
-    }
+    
 
     
     $total = mysqli_query($conn, "SELECT SUM(price * quantity) as total FROM cart");
