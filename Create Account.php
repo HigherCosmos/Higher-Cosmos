@@ -30,7 +30,7 @@ include_once 'connection.php';
 
     <div align="center">
         <div class="container">
-            <form action= "<?php htmlspecialchars($_SERVER("PHP_SELF")) ?>" method="post">
+            <form action= "<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
                 <h1>Please fill in this form to create an account.</h1>
                 <label> Create username: </label>
                 <input type="text" name="user_name" id="username" /><br /><br />
@@ -73,11 +73,12 @@ include_once 'connection.php';
 
 
 
-if($_SERVER("REQUEST_METHOD") == "POST"){
+if($_SERVER["REQUEST_METHOD"] == "POST"){
     $user_name = filter_input(INPUT_POST, "user_name", FILTER_SANITIZE_SPECIAL_CHARS);
     $pass_word = filter_input(INPUT_POST, "pass_word", FILTER_SANITIZE_SPECIAL_CHARS);
     $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
-    $sql = "INSERT INTO users (username, pass_word, email) VALUES ('$user_name', '$pass_word', $email')";
+    $sql = "INSERT INTO users (username, pass_word, email) 
+    VALUES ('$user_name', '$pass_word', '$email')";
     mysqli_query($conn, $sql);
 }
 mysqli_close($conn);

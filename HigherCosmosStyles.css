@@ -353,12 +353,6 @@ footer {
     background-color: green;
 }
 
-form {
-    margin: 0;
-    padding-left: 10px;
-    width: 50%;
-}
-
 form > h1 {
     text-align: center;
 }
