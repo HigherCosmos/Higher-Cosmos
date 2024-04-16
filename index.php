@@ -148,7 +148,7 @@ if (isset($_POST["search"])) {
     </section>
 
     <section id="info">
-		<img src = "HigherCosmosLogo.jpg" alt = "Higher Cosmos Logo" style="width: 500px; height: 400px;">
+		<img src = "images/HigherCosmosLogo.jpg" alt = "Higher Cosmos Logo" style="width: 500px; height: 400px;">
 		<h1>Our Mission to reach Higher Cosmos:</h1>
 		    <p>    
 			    A Higher Cosmos is a designated website for selling cosmetics and for guiding customers while selling a multitude of products . 
