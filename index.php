@@ -46,6 +46,7 @@
             <nav class="navbar-container">
                 <h1><a href="index.php" class="home-link">Higher Cosmos</a></h1>
                 <ul>
+                    <li><a href="admin.php">Admin</a></li>
                     <li><a href="shop.php">Shop</a></li>
                     <li><a href="Cart.php">Cart</a></li>
                     <li><a href="#contact" onclick="scrollToContact()">Contact</a></li>
