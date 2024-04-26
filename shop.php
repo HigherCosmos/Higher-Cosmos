@@ -138,7 +138,7 @@ if (isset($_POST["search"])) {
                         <input type="hidden" name="product_desc" value="<?php echo $product_desc?>">
                         <input type="hidden" name="product_image" value="<?php echo $product_image?>">
                         <input type="hidden" name="price" value="<?php echo $price?>">
-                        <input class="add_button" type="submit" value="Add to Cart" name="add_to_cart">
+                        <input onclick="alert('Item added to cart')" class="add_button" type="submit" value="Add to Cart" name="add_to_cart">
                     </div>
                 </div>
             </form>

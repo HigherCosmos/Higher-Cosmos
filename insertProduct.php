@@ -11,9 +11,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="admin.css">
     <title>Insert Product</title>
 </head>
 <body>
+
+    <header>
+        <div class="navbar">
+            <nav class="navbar-container">
+                <h1><a href="index.php" class="home-link">Higher Cosmos</a></h1>
+                <ul>
+                    <li><a href="shop.php">Shop</a></li>
+                    <li><a href="Cart.php">Cart</a></li>                    
+                    <li><a href="#contact" onclick="scrollToContact()">Contact</a></li>
+                    <li><a href="Info.html">Info</a></li>    
+                    <li><a href="SigninLogout.html">Signin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <h1>Insert Product Form</h1>
     <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
