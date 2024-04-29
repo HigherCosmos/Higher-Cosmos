@@ -534,7 +534,7 @@ form > h1 {
 }
 
 #filters label {
-    display: flexbox;
+    display: flex;
     margin-bottom: 5px;
 }
 

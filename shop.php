@@ -141,52 +141,48 @@ if (isset($_POST["search"])) {
 </div>
 
 <section id="featured-products">
-        <h2>Our Products</h2>
-        <div class="product-grid">
-            <?php
-            $sql = "SELECT * FROM Product;";
-            $result = mysqli_query($conn, $sql);
+    <h2>Our Products</h2>
+    <div class="product-grid">
+        <?php
+        $sql = "SELECT * FROM Product;";
+        $result = mysqli_query($conn, $sql);
 
-            while($row = mysqli_fetch_assoc($result)) {
-                $product_id = $row['product_id'];
-                $product_name = $row['product_name'];
-                $product_image = $row['product_image'];
-                $product_desc = $row['product_desc'];
-                $price = $row['price'];
-                $category = getProductCategory($product_id);
-                $gender = getProductGender($product_id);
-            ?>
-            <form method="post" action="">
-                <div class='product'>
-                    <img src='images/<?php echo $product_image?>' alt='13in1'>
-                    <div class='product-details'>
-                        <h3><?php echo $product_name?></h3>
-                        <p><?php echo $product_desc?></p>
-                        <p>$<?php echo $price?></p>
-                    
-                    
-                
-                        <input type="hidden" name="product_id" value="<?php echo $product_id?>">
-                        <input type="hidden" name="product_name" value="<?php echo $product_name?>">
-                        <input type="hidden" name="product_desc" value="<?php echo $product_desc?>">
-                        <input type="hidden" name="product_image" value="<?php echo $product_image?>">
-                        <input type="hidden" name="price" value="<?php echo $price?>">
-                        <input onclick="alert('Item added to cart')" class="add_button" type="submit" value="Add to Cart" name="add_to_cart">
-                    </div>
-                </div>
-            </form>
-            <?php
-            }
-            ?>
+        while($row = mysqli_fetch_assoc($result)) {
+            $product_id = $row['product_id'];
+            $product_name = $row['product_name'];
+            $product_image = $row['product_image'];
+            $product_desc = $row['product_desc'];
+            $price = $row['price'];
+            $category = getProductCategory($product_id);
+            $gender = getProductGender($product_id);
+        ?>
+        <div class='product' data-gender="<?php echo $gender ?>" data-category="<?php echo $category ?>" onclick="showPopup('<?php echo $product_name ?>', '<?php echo $product_image ?>', '<?php echo $price ?>', '<?php echo $product_desc ?>')">
+            <img src='images/<?php echo $product_image ?>' alt='<?php echo $product_name ?>' style="width: 100%; height: 200px;">
+            <div class='product-details'>
+                <h3><?php echo $product_name ?></h3>
+                <p>$<?php echo $price ?></p>
+                <form method="post" action="">
+                    <input type="hidden" name="product_id" value="<?php echo $product_id ?>">
+                    <input type="hidden" name="product_name" value="<?php echo $product_name ?>">
+                    <input type="hidden" name="product_image" value="<?php echo $product_image ?>">
+                    <input type="hidden" name="product_desc" value="<?php echo $product_desc ?>">
+                    <input type="hidden" name="price" value="<?php echo $price ?>">
+                    <input class="add_button" type="submit" value="Add to Cart" name="add_to_cart">
+                </form>
+            </div>
         </div>
-    </section>
-
-    <!-- Modal Popup -->
-    <div id="productModal" class="modal">
-        <div class="modal-content" id="modalContent">
-            <!-- Product details will be displayed here -->
-        </div>
+        <?php
+        }
+        ?>
     </div>
+</section>
+
+<!-- Modal Popup -->
+<div id="productModal" class="modal">
+    <div class="modal-content" id="modalContent">
+        <!-- Product details will be displayed here -->
+    </div>
+</div>
 
     <section id="contact" class="contact-section">
         <h2>Contact Us</h2>
@@ -211,7 +207,7 @@ if (isset($_POST["search"])) {
                 <p>${description}</p>
                 <p>Price: $${price}</p>
                 <input class="add_button" type="submit" value="Add to Cart" name="add_to_cart">
-            `;
+                `;
             var modal = document.getElementById("productModal");
             modal.style.display = "block";
         }
