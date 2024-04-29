@@ -6,7 +6,7 @@
     box-sizing: border-box; 
     border: none; 
     outline: none; 
-    font-family: 'Poppins', sans-serif; 
+    font-family: 'Arial', sans-serif; 
     text-transform: capitalize; 
     transition: all 0.2s linear; 
 } 
@@ -17,8 +17,10 @@
     height: auto;
     padding: 10px;
     background-image: url("images/spacebackground.jpg");
-    background-color: #7a7f7f;
-    border-radius: 0;
+    background-color: rgb(0, 0, 0);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    font-size: 26px;
 }
 
 .navbar-container {
@@ -44,15 +46,35 @@
 }
 
 .navbar a {
-    color: rgb(255, 255, 255);
+    color: rgb(217, 210, 210);
     text-decoration: none;
+    padding: 5px;
+    background-color: black;
+    border-radius: 10px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
 }
 
 .navbar a:hover {
     color: #7a7f7f;
-    background-color: #fff;
+    background-color: black;
     border-radius: 10px;
-    padding: 3px;
+    padding: 5px;
+}
+
+.navbar-container h1 a.home-link {
+    color: rgb(217, 210, 210);
+    text-decoration: none;
+    font-size: 40px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+}
+
+.navbar-container h1 a.home-link:hover {
+    color: #7a7f7f;
+    background-color: #000000;
+    border-radius: 10px;
+    padding: 5px;
 }
   
 .container { 

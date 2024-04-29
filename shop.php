@@ -156,21 +156,25 @@ if (isset($_POST["search"])) {
                 $category = getProductCategory($product_id);
                 $gender = getProductGender($product_id);
             ?>
-            <div class='product' data-gender="<?php echo $gender ?>" data-category="<?php echo $category ?>" onclick="showPopup('<?php echo $product_name ?>', '<?php echo $product_image ?>', '<?php echo $price ?>', '<?php echo $product_desc ?>')">
-            <img src='images/<?php echo $product_image ?>' alt='<?php echo $product_name ?>' style="width: 150px; height: 150px;">
-            <div class='product-details'>
-                <h3><?php echo $product_name ?></h3>
-                <p>$<?php echo $price ?></p>
-                <form method="post" action="">
-                    <input type="hidden" name="product_id" value="<?php echo $product_id ?>">
-                    <input type="hidden" name="product_name" value="<?php echo $product_name ?>">
-                    <input type="hidden" name="product_image" value="<?php echo $product_image ?>">
-                    <input type="hidden" name="product_desc" value="<?php echo $product_desc ?>">
-                    <input type="hidden" name="price" value="<?php echo $price ?>">
-                    <input class="add_button" type="submit" value="Add to Cart" name="add_to_cart">
-                </form>
-            </div>
-        </div>
+            <form method="post" action="">
+                <div class='product'>
+                    <img src='images/<?php echo $product_image?>' alt='13in1'>
+                    <div class='product-details'>
+                        <h3><?php echo $product_name?></h3>
+                        <p><?php echo $product_desc?></p>
+                        <p>$<?php echo $price?></p>
+                    
+                    
+                
+                        <input type="hidden" name="product_id" value="<?php echo $product_id?>">
+                        <input type="hidden" name="product_name" value="<?php echo $product_name?>">
+                        <input type="hidden" name="product_desc" value="<?php echo $product_desc?>">
+                        <input type="hidden" name="product_image" value="<?php echo $product_image?>">
+                        <input type="hidden" name="price" value="<?php echo $price?>">
+                        <input onclick="alert('Item added to cart')" class="add_button" type="submit" value="Add to Cart" name="add_to_cart">
+                    </div>
+                </div>
+            </form>
             <?php
             }
             ?>
