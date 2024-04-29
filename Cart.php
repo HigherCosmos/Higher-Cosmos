@@ -104,10 +104,11 @@
             <!--<button class="remove-button" id="remove-all-btn" onclick="clearCart()">Remove All</button>-->
             <div id="total-price">Total:$
                 <?php 
-                    
-                    
+                    if ($sum == 0) {
+                        echo "0.00";
+                    } else {
                         echo $sum;
-                    
+                    }
                 ?>
     </div>
         </div>

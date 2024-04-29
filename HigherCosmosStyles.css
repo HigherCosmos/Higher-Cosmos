@@ -185,6 +185,7 @@ section {
     border: none;
     border-radius: 2px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .add_button:hover {
@@ -422,6 +423,7 @@ form > h1 {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     overflow: auto;
+    text-align: center;
 }
 
 .modal-content {
@@ -430,6 +432,7 @@ form > h1 {
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    text-align: center;
 }
 
 .close {
@@ -498,4 +501,54 @@ form > h1 {
     100% { opacity: 0; }
 }
 
+#productModal img {
+    max-height: 200px; 
+    max-width: 200px;
+    text-align: center;
+}
+
+/***********************************************************************************************/
+#filters {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+#filters h3 {
+    margin-top: 0;
+}
+
+#filters h4 {
+    margin-top: 15px;
+}
+
+#filters label {
+    display: flexbox;
+    margin-bottom: 5px;
+}
+
+#filters input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+#filters input[type="submit"] {
+    background-color: #4CAF50;
+    border: none;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#filters input:hover {
+    background-color: #28a745;
+}
 

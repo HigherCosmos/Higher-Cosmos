@@ -56,14 +56,6 @@
         </div>
     </header> 
 
-    <section id="home">
-        <h2>Welcome to Higher Cosmos</h2>
-        <p>Discover a higher level of beauty with our premium cosmetic products.</p>
-        
-        <!-- Update the search input and add an element for the sorry message -->
-        <!--<input type="text" id="searchInput" placeholder="Search for products..." oninput="searchProducts(event)" onkeydown="searchProducts(event)">
-        <p id="sorryMessage" style="display: none;">Sorry, no matching products found.</p>-->
-    </section> 
 
     <!--<form id="searchForm" action="search.php" method="post">
     <input type="text" id="searchInput" name="query" placeholder="Search...">
@@ -71,96 +63,11 @@
 </form> -->
 
 
-    <section id="featured-products">
-        <h2>Featured Products</h2>
-        <div class="product-grid">
-
-        <?php
-            $sql = "SELECT * FROM Product;";
-            $result = mysqli_query($conn, $sql);
-            
-            while($row = mysqli_fetch_assoc($result)) {
-                $product_id = $row['product_id'];
-                $product_name = $row['product_name'];
-                $product_desc = $row['product_desc'];
-                $product_image = $row['product_image'];
-                $price = $row['price'];
-                ?>
-                <form method="post" action="">
-                    <div class='product'>
-                        <img src='images/<?php echo $product_image?>' alt='13in1'>
-                        <div class='product-details'>
-                            <h3><?php echo $product_name?></h3>
-                            <p><?php echo $product_desc?></p>
-                            <p>$<?php echo $price?></p>
-                        
-                        
-                    
-                            <input type="hidden" name="product_id" value="<?php echo $product_id?>">
-                            <input type="hidden" name="product_name" value="<?php echo $product_name?>">
-                            <input type="hidden" name="product_desc" value="<?php echo $product_desc?>">
-                            <input type="hidden" name="product_image" value="<?php echo $product_image?>">
-                            <input type="hidden" name="price" value="<?php echo $price?>">
-                            <input class="add_button" type="submit" value="Add to Cart" name="add_to_cart">
-                        </div>
-                    </div>
-                </form>
-                <?php
-                
-                
-            }
-        ?>
-                
-    </section>
-<?php
-// search.php (process search when form submitted)
-if (isset($_POST["search"])) {
-    $searchTerm = $_POST["search"];
-    
-    //$conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
-    
-    // Search for matching records
-    $sql = "SELECT * FROM product WHERE product_name ='CeraVe-Benzoyl Peroxide'"; /*title LIKE '%$searchTerm%' OR content LIKE '%$searchTerm%'*/
-    $result = mysqli_query($conn, $sql);
-
-    while($row = mysqli_fetch_assoc($result)) {
-        $product_id = $row['product_id'];
-        $product_name = $row['product_name'];
-        $product_desc = $row['product_desc'];
-        $product_image = $row['product_image'];
-        $price = $row['price'];
-
-        echo "<div class='product'>
-        <img src='$product_image' alt='13in1' style='width: 150px; height: 150px;'>
-        <h3>'$product_name'</h3>
-        <p>'$product_desc'</p>
-        <p>$'$price'</p>
-        <button class='add_button' onclick='addToCart()'>Add to Cart</button>
-
-        </div>";
-    }
-    
-    /*if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<div>{$row['title']} - {$row['content']}</div>";
-        }
-    } else {
-        echo "No results found";
-    }*/
-    
-    mysqli_close($conn);
-}
-?>
-    
-
     <section id="info">
 		<img src = "images/HigherCosmosLogo.jpg" alt = "Higher Cosmos Logo" style="width: 500px; height: 400px;">
 		<h1>Our Mission to reach Higher Cosmos:</h1>
 		    <p>    
-			    A Higher Cosmos is a designated website for selling cosmetics and for guiding customers while selling a multitude of products . 
+			    Higher Cosmos is a designated website for selling cosmetics and for guiding customers while selling a multitude of products . 
 			    Although this is a general idea, I believe integrating this sort of database design will help many consumers to shop for all different cosmetic products. 
 			    Higher Cosmetics goals consist of aiming for a more organizational and out of this world shopping experience offered online for all consumers of beauty care goods. 
 			    With a unique web page design, the ultimate goal is to have an easy use environment for all potential customers.
