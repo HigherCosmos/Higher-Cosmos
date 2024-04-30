@@ -128,13 +128,13 @@ if (isset($_POST["search"])) {
     <h3>Filter Products</h3>
     <form id="filterForm">
         <h4>Gender</h4>
-        <label><input type="checkbox" name="gender" value="male" checked> Male</label>
-        <label><input type="checkbox" name="gender" value="female" checked> Female</label>
+        <label><input type="checkbox" name="gender" value="Male"> Male</label>
+        <label><input type="checkbox" name="gender" value="Female"> Female</label>
 
         <h4>Category</h4>
-        <label><input type="checkbox" name="category" value="acne" checked> Acne</label>
-        <label><input type="checkbox" name="category" value="shampoo" checked> Shampoo</label>
-        <label><input type="checkbox" name="category" value="razors" checked> Razors</label>
+        <label><input type="checkbox" name="category" value="Acne"> Acne</label>
+        <label><input type="checkbox" name="category" value="Shampoo"> Shampoo</label>
+        <label><input type="checkbox" name="category" value="Razors"> Razors</label>
 
         <input type="submit" value="Apply Filters">
     </form>
@@ -182,6 +182,10 @@ if (isset($_POST["search"])) {
     <div class="modal-content" id="modalContent">
         <!-- Product details will be displayed here -->
     </div>
+</div>
+
+<div id="noProductsMessage">
+    Sorry, no products found. Please check the filter. If problems persits, please <a href="#contact" onclick="scrollToContact()">contact</a> out support team.
 </div>
 
     <section id="contact" class="contact-section">
@@ -239,8 +243,16 @@ if (isset($_POST["search"])) {
         }
     </script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script>
     $(document).ready(function() {
+        // Initially show all products
+        $('.product').show();
+        
+        // Hide the noProductsMessage initially
+        $('#noProductsMessage').hide();
+
         // Function to filter products based on selected categories
         function filterProducts() {
             var genderFilters = $('input[name="gender"]:checked').map(function() {
@@ -250,20 +262,32 @@ if (isset($_POST["search"])) {
                 return this.value;
             }).get();
 
+            // If no checkboxes are checked, show all products
+            if (genderFilters.length === 0 && categoryFilters.length === 0) {
+                $('.product').show();
+                $('#noProductsMessage').hide(); // Hide the message
+                return;
+            }
+
             // Perform filtering logic based on selected categories
-            $('.product').each(function() {
+            var productsToShow = $('.product').filter(function() {
                 var gender = $(this).data('gender');
                 var category = $(this).data('category');
-                if (genderFilters.includes(gender) && categoryFilters.includes(category)) {
-                    $(this).show();
-                } else {
-                    $(this).hide();
-                }
+                return (genderFilters.length === 0 || genderFilters.includes(gender)) &&
+                       (categoryFilters.length === 0 || categoryFilters.includes(category));
             });
-        }
 
-        // Initially filter products based on default selections
-        filterProducts();
+            // Hide all products and show only filtered ones
+            $('.product').hide();
+            productsToShow.show();
+
+            // Display message if no products found
+            if (productsToShow.length === 0) {
+                $('#noProductsMessage').show();
+            } else {
+                $('#noProductsMessage').hide();
+            }
+        }
 
         // Update product grid when filter options are changed
         $('#filterForm').submit(function(e) {

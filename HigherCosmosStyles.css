@@ -76,6 +76,11 @@ body {
     padding: 5px;
 }
 
+#noProductsMessage {
+    text-align: center;
+    color: black;
+}
+
 /************************************************************************************************************************/
 #info {
     text-align: center;
