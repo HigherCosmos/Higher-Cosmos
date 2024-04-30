@@ -109,6 +109,7 @@ if (isset($_POST["search"])) {
         $product_desc = $row['product_desc'];
         $product_image = $row['product_image'];
         $price = $row['price'];
+        $product_category = $row['product_category'];
 
         echo "<div class='product'>
         <img src='$product_image' alt='13in1' style='width: 150px; height: 150px;'>
@@ -160,7 +161,7 @@ if (isset($_POST["search"])) {
             $category = getProductCategory($product_id);
             $gender = getProductGender($product_id);
         ?>
-        <div class='product' data-gender="<?php echo $gender ?>" data-category="<?php echo $category ?>" onclick="showPopup('<?php echo $product_name ?>', '<?php echo $product_image ?>', '<?php echo $price ?>', '<?php echo $product_desc ?>')">
+        <div class='product' data-gender="<?php echo $gender ?>" data-category="<?php echo $category ?>" onclick="showPopup('<?php echo $product_name ?>', '<?php echo $product_image ?>', '<?php echo $price ?>', '<?php echo $product_desc ?>', '<?php echo $category ?>')">
             <img src='images/<?php echo $product_image ?>' alt='<?php echo $product_name ?>' style="width: 100%; height: 200px;">
             <div class='product-details'>
                 <h3><?php echo $product_name ?></h3>
@@ -206,19 +207,19 @@ if (isset($_POST["search"])) {
     <!-- <script src="cookies.js"></script> -->
 
     <script>
-        function showPopup(name, image, price, description) {
-            var modalContent = document.getElementById("modalContent");
-            modalContent.innerHTML = `
-                <span class="close" onclick="closeModal()">&times;</span>
-                <h2>${name}</h2>
-                <img src="images/${image}" alt="${name}">
-                <p>${description}</p>
-                <p>Price: $${price}</p>
-                <input class="add_button" type="submit" value="Add to Cart" name="add_to_cart">
-                `;
-            var modal = document.getElementById("productModal");
-            modal.style.display = "block";
-        }
+    function showPopup(name, image, price, description, category) {
+        var modalContent = document.getElementById("modalContent");
+        modalContent.innerHTML = `
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>${name}</h2>
+            <img src="images/${image}" alt="${name}">
+            <p>${description}</p>
+            <p>Price: $${price} | Category: ${category}</p>
+            <input class="add_button" type="submit" value="Add to Cart" name="add_to_cart">
+            `;
+        var modal = document.getElementById("productModal");
+        modal.style.display = "block";
+    }
 
         function closeModal() {
             var modal = document.getElementById("productModal");
