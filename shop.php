@@ -134,7 +134,7 @@ if (isset($_POST["search"])) {
         <h4>Category</h4>
         <label><input type="checkbox" name="category" value="Acne">Acne</label>
         <label><input type="checkbox" name="category" value="Shampoo">Shampoo</label>
-        <label><input type="checkbox" name="category" value="Razors">Razors</label>
+        <label><input type="checkbox" name="category" value="Razor">Razors</label>
         <label><input type="checkbox" name="category" value="Cologne">Cologne</label>
         <label><input type="checkbox" name="category" value="Perfume">Perfume</label>
         <label><input type="checkbox" name="category" value="Conditioner">Conditioner</label>
