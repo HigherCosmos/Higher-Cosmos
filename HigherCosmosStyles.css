@@ -523,47 +523,58 @@ form > h1 {
 }
 
 /***********************************************************************************************/
+/* Style for the filter section */
 #filters {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 20px;
     background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    width: 250px; /* Adjust the width as needed */
 }
 
-#filters h3 {
+/* Style for the filter headers */
+#filters h3, #filters h4 {
     margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
 }
 
-#filters h4 {
-    margin-top: 15px;
-}
-
+/* Style for the checkboxes */
 #filters label {
-    display: flex;
+    display: block;
     margin-bottom: 5px;
+    font-size: 14px;
 }
 
-#filters input[type="checkbox"] {
-    margin-right: 5px;
+/* Style for the checkboxes container */
+.checkbox-container {
+    display: grid;
+    grid-template-columns: repeat(2, auto); /* Two columns */
+    grid-gap: 5px; /* Adjust the gap between checkboxes */
 }
 
+/* Style for the submit button */
 #filters input[type="submit"] {
     background-color: #4CAF50;
-    border: none;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    display: block;
-    font-size: 16px;
-    margin-top: 10px;
+    color: white;
+    padding: 8px 15px;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 14px;
+    margin-top: 10px;
 }
 
-#filters input:hover {
-    background-color: #28a745;
+/* Style for the submit button on hover */
+#filters input[type="submit"]:hover {
+    background-color: #45a049;
 }
+
+/* Style for the filter section heading */
+#filters h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
 
