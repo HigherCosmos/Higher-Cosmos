@@ -12,16 +12,14 @@ include_once 'connection.php';
     <link rel="stylesheet" type="text/css" href="HigherCosmosStyles.css">
 </head>
 <body>
-    <header>
+<header>
         <div class="navbar">
             <nav class="navbar-container">
-                <h1>Higher Cosmos</h1>
+                <h1><a href="index.php" class="home-link">Higher Cosmos</a></h1>
                 <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="Cart.html">Cart</a></li>
+                    <li><a href="shop.php">Shop</a></li>
+                    <li><a href="Cart.php">Cart</a></li>
                     <li><a href="#contact" onclick="scrollToContact()">Contact</a></li>
-                    <li><a href="Info.html">Info</a></li>    
                     <li><a href="SigninLogout.html">Signin</a></li>
                 </ul>
             </nav>
@@ -38,7 +36,7 @@ include_once 'connection.php';
                 <input type="text" name="pass_word" id="password" /><br /><br />
                 <label> Email: </label>
                 <input type="text" name="email" id="emailaddress" /><br /><br />
-                <input type="submit" value="Submit" /><br />
+                <input class="add_button" type="submit" value="Submit" /><br />
 
             </form>
         </div>
