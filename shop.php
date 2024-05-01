@@ -152,7 +152,7 @@ if (isset($_POST["search"])) {
     <h2>Our Products</h2>
     <div class="product-grid">
         <?php
-        $sql = "SELECT * FROM Product;";
+        $sql = "SELECT * FROM Product ORDER BY product_name ASC;";
         $result = mysqli_query($conn, $sql);
 
         while($row = mysqli_fetch_assoc($result)) {
