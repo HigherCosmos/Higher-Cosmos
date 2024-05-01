@@ -109,7 +109,6 @@ if (isset($_POST["search"])) {
         $product_desc = $row['product_desc'];
         $product_image = $row['product_image'];
         $price = $row['price'];
-        $product_category = $row['product_category'];
 
         echo "<div class='product'>
         <img src='$product_image' alt='13in1' style='width: 150px; height: 150px;'>
@@ -137,6 +136,7 @@ if (isset($_POST["search"])) {
             <label><input type="checkbox" name="category" value="Shampoo">Shampoo</label>
             <label><input type="checkbox" name="category" value="Acne">Acne</label>
             <label><input type="checkbox" name="category" value="Conditioner">Conditioner</label>
+            <label><input type="checkbox" name="category" value="Soap">Soap</label>
             <label><input type="checkbox" name="category" value="Razor">Razors</label>
             <label><input type="checkbox" name="category" value="Cologne">Cologne</label>
             <label><input type="checkbox" name="category" value="Perfume">Perfume</label>
