@@ -77,8 +77,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $user_name = filter_input(INPUT_POST, "user_name", FILTER_SANITIZE_SPECIAL_CHARS);
     $pass_word = filter_input(INPUT_POST, "pass_word", FILTER_SANITIZE_SPECIAL_CHARS);
     $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
+    $hash_pass_word = password_hash($pass_word, PASSWORD_DEFAULT);
     $sql = "INSERT INTO users (username, pass_word, email) 
-    VALUES ('$user_name', '$pass_word', '$email')";
+    VALUES ('$user_name', '$hash_pass_word', '$email')";
     mysqli_query($conn, $sql);
 }
 mysqli_close($conn);

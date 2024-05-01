@@ -54,7 +54,7 @@
         while($row = mysqli_fetch_assoc($result)) {
             $user_id = $row['user_id'];
             $user_name = $row['username'];
-            $user_pass = $row['password'];
+            $user_pass = $row['pass_word'];
             $user_email = $row['email'];
             $user_type = $row['usertype'];
             ?>
