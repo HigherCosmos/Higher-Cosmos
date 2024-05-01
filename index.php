@@ -50,21 +50,12 @@
                     <li><a href="shop.php">Shop</a></li>
                     <li><a href="Cart.php">Cart</a></li>
                     <li><a href="#contact" onclick="scrollToContact()">Contact</a></li>
-                    <li><a href="Info.html">Info</a></li>    
                     <li><a href="SigninLogout.html">Signin</a></li>
                 </ul>
             </nav>
         </div>
     </header> 
 
-    <section id="home">
-        <h2>Welcome to Higher Cosmos</h2>
-        <p>Discover a higher level of beauty with our premium cosmetic products.</p>
-        
-        <!-- Update the search input and add an element for the sorry message -->
-        <!--<input type="text" id="searchInput" placeholder="Search for products..." oninput="searchProducts(event)" onkeydown="searchProducts(event)">
-        <p id="sorryMessage" style="display: none;">Sorry, no matching products found.</p>-->
-    </section> 
 
     <!--<form id="searchForm" action="search.php" method="post">
     <input type="text" id="searchInput" name="query" placeholder="Search...">
@@ -102,7 +93,7 @@
                             <input type="hidden" name="product_desc" value="<?php echo $product_desc?>">
                             <input type="hidden" name="product_image" value="<?php echo $product_image?>">
                             <input type="hidden" name="price" value="<?php echo $price?>">
-                            <input class="add_button" type="submit" value="Add to Cart" name="add_to_cart">
+                            <input  onclick="alert('Item added to cart')" class="add_button" type="submit" value="Add to Cart" name="add_to_cart">
                         </div>
                     </div>
                 </form>
@@ -161,7 +152,7 @@ if (isset($_POST["search"])) {
 		<img src = "images/HigherCosmosLogo.jpg" alt = "Higher Cosmos Logo" style="width: 500px; height: 400px;">
 		<h1>Our Mission to reach Higher Cosmos:</h1>
 		    <p>    
-			    A Higher Cosmos is a designated website for selling cosmetics and for guiding customers while selling a multitude of products . 
+			    Higher Cosmos is a designated website for selling cosmetics and for guiding customers while selling a multitude of products . 
 			    Although this is a general idea, I believe integrating this sort of database design will help many consumers to shop for all different cosmetic products. 
 			    Higher Cosmetics goals consist of aiming for a more organizational and out of this world shopping experience offered online for all consumers of beauty care goods. 
 			    With a unique web page design, the ultimate goal is to have an easy use environment for all potential customers.
@@ -174,17 +165,17 @@ if (isset($_POST["search"])) {
         <a href="shop.php" class="shop_now_button">Shop Now</a>
     </section>
 
-
+<!--
     <div id="productModal" class="modal">
         <div class="modal-content" id="modalContent">
-            <!-- Modal content goes here -->
+             
         </div>
     </div>
 
     <div id="cookie" class="cookie-consent">
         <p>This website uses cookies to ensure you get the best experience on our website. <button id="cookies-btn">Accept</button></p>
     </div>
-
+-->
     <section id="contact" class="contact-section">
         <h2>Contact Us</h2>
         <p>Have questions? Reach out to us at <a href="mailto:HigherCosmosSupport@gmail.com">HigherCosmosSupport@gmail.com</a></p>
@@ -197,5 +188,25 @@ if (isset($_POST["search"])) {
     <script src="HigherCosmosCart.js"></script>
     <script src="script.js"></script>
     <!-- <script src="cookies.js"></script> -->
+    <script>
+        function scrollToContact() {
+            const contactSection = document.getElementById('contact');
+            const offsetTop = contactSection.offsetTop;
+
+            // Smoothly scroll to the contact section
+            window.scroll({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+
+            // Add pulse animation
+            contactSection.classList.add('pulse');
+
+            // Remove pulse animation
+            setTimeout(() => {
+                contactSection.classList.remove('pulse');
+            }, 1000); // 1500 milliseconds = 1.5 seconds
+        }
+    </script>
 </body>
 </html>

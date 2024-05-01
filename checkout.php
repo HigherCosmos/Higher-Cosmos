@@ -17,7 +17,7 @@
     <header>
         <div class="navbar">
             <nav class="navbar-container">
-                <h1>Higher Cosmos</h1>
+            <h1><a href="index.php" class="home-link">Higher Cosmos</a></h1>
                 <ul>
                     <li><a href="index.php">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>

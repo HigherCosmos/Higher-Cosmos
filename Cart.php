@@ -49,7 +49,6 @@
                     <li><a href="shop.php">Shop</a></li>
                     <li><a href="Cart.php">Cart</a></li>
                     <li><a href="#contact" onclick="scrollToContact()">Contact</a></li>
-                    <li><a href="Info.html">Info</a></li>    
                     <li><a href="SigninLogout.html">Signin</a></li>
                 </ul>
             </nav>
@@ -103,25 +102,30 @@
         <div class="total">
             <a href="checkout.php" class="checkout_button" onclick="checkout()">Proceed to Checkout</a>
             <!--<button class="remove-button" id="remove-all-btn" onclick="clearCart()">Remove All</button>-->
-            <div id="total-price">Total: $
+            <div id="total-price">Total:$
                 <?php 
-                    
-                    echo $sum;
+                    if ($sum == 0) {
+                        echo "0.00";
+                    } else {
+                        echo $sum;
+                    }
                 ?>
     </div>
         </div>
         
     </section>
     
+    <!--
     <div id="productModal" class="modal">
         <div class="modal-content" id="modalContent">
-            <!-- Modal content goes here -->
+             
         </div>
     </div>
 
     <div id="cookie" class="cookie-consent">
         <p>This website uses cookies to ensure you get the best experience on our website. <button id="cookies-btn">Accept</button></p>
     </div>
+-->
 
     <section id="contact" class="contact-section">
         <h2>Contact Us</h2>
@@ -134,5 +138,25 @@
 
     <script src="script.js"></script>
     <!-- <script src="cookies.js"></script> -->    
+    <script>
+        function scrollToContact() {
+            const contactSection = document.getElementById('contact');
+            const offsetTop = contactSection.offsetTop;
+
+            // Smoothly scroll to the contact section
+            window.scroll({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+
+            // Add pulse animation
+            contactSection.classList.add('pulse');
+
+            // Remove pulse animation
+            setTimeout(() => {
+                contactSection.classList.remove('pulse');
+            }, 1000); // 1500 milliseconds = 1.5 seconds
+        }
+    </script>
 </body>
 </html>

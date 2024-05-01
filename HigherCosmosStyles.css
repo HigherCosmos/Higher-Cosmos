@@ -43,7 +43,10 @@ body {
 }
 
 .navbar a {
-    color: black;
+    padding: 5px;
+    color: rgb(217, 210, 210);
+    background-color: black;
+    border-radius: 10px;
     text-decoration: none;
     -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: white;
@@ -52,18 +55,30 @@ body {
 
 .navbar a:hover {
     color: #7a7f7f;
-    background-color: #fff;
+    background-color: #000000;
     border-radius: 10px;
-    padding: 3px;
+    padding: 5px;
 }
 
 .navbar-container h1 a.home-link {
     /* custom styles for the home link */
-    color: black;
+    color: rgb(217, 210, 210);
     text-decoration: none;
     font-size: 40px;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: white;
+}
+
+.navbar-container h1 a.home-link:hover {
+    color: #7a7f7f;
+    background-color: #000000;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#noProductsMessage {
+    text-align: center;
+    color: black;
 }
 
 /************************************************************************************************************************/
@@ -185,6 +200,7 @@ section {
     border: none;
     border-radius: 2px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .add_button:hover {
@@ -422,6 +438,7 @@ form > h1 {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     overflow: auto;
+    text-align: center;
 }
 
 .modal-content {
@@ -430,6 +447,7 @@ form > h1 {
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    text-align: center;
 }
 
 .close {
@@ -496,6 +514,67 @@ form > h1 {
 @keyframes fadeOut {
     0% { opacity: 1; }
     100% { opacity: 0; }
+}
+
+#productModal img {
+    max-height: 200px; 
+    max-width: 200px;
+    text-align: center;
+}
+
+/***********************************************************************************************/
+/* Style for the filter section */
+#filters {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    width: 250px; /* Adjust the width as needed */
+}
+
+/* Style for the filter headers */
+#filters h3, #filters h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Style for the checkboxes */
+#filters label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* Style for the checkboxes container */
+.checkbox-container {
+    display: grid;
+    grid-template-columns: repeat(2, auto); /* Two columns */
+    grid-gap: 5px; /* Adjust the gap between checkboxes */
+}
+
+/* Style for the submit button */
+#filters input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Style for the submit button on hover */
+#filters input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Style for the filter section heading */
+#filters h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
 }
 
 
